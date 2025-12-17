@@ -289,17 +289,20 @@ footer {
     width: 100%;
   }
 
-  .img_card.is-expanded {
-    height: 100%;
-    max-width: 90%;
-    aspect-ratio: 16 / 9;
-    z-index: 99;
-    transition: 0.3s ease-in;
-    margin-top: 50px;
+  .card.is-expanded .slider {
+    display: none;
   }
 
-  .inner_part.is-expanded .content,
-  .inner_part.is-expanded ~ .slider {
+  .card.is-expanded .inner_part .content {
     display: none;
+  }
+
+  .card.is-expanded .inner_part.is-expanded .img_card {
+    height: auto;
+    max-width: 100%;
+    aspect-ratio: 16/9;
+    margin-top: 50px;
+    z-index: 99;
+    transition: 0.3s ease-in;
   }
 }
