@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Making Of</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/slider.js" defer></script>
   </head>
   <body class="body_makingOf">
     <header>
@@ -33,21 +34,15 @@
       </div>
       <div class="slideshow">
         <div class="card">
-          <input type="radio" name="select" id="slide_1" checked />
-          <input type="radio" name="select" id="slide_2" />
-          <input type="radio" name="select" id="slide_3" />
-          <input type="radio" name="select" id="slide_4" />
-          <input type="checkbox" id="slideImg" />
-
           <div class="slider">
-            <label for="slide_1" class="slide slide_1"></label>
-            <label for="slide_2" class="slide slide_2"></label>
-            <label for="slide_3" class="slide slide_3"></label>
-            <label for="slide_4" class="slide slide_4"></label>
+            <button class="slide-btn" data-slide="1"></button>
+            <button class="slide-btn" data-slide="2"></button>
+            <button class="slide-btn" data-slide="3"></button>
+            <button class="slide-btn" data-slide="4"></button>
           </div>
 
-          <div class="inner_part">
-            <label for="slideImg" class="img_card">
+          <div class="inner_part" data-slide="1">
+            <label class="img_card">
               <img class="img_1" src="img/idea.png" />
             </label>
             <div class="content content_1">
@@ -63,8 +58,8 @@
             </div>
           </div>
 
-          <div class="inner_part">
-            <label for="slideImg" class="img_card">
+          <div class="inner_part" data-slide="2">
+            <label class="img_card">
               <img class="img_2" src="img/concept.png" />
             </label>
             <div class="content content_2">
@@ -80,8 +75,8 @@
             </div>
           </div>
 
-          <div class="inner_part">
-            <label for="slideImg" class="img_card">
+          <div class="inner_part" data-slide="3">
+            <label class="img_card">
               <img class="img_3" src="img/filming.jpg" />
             </label>
             <div class="content content_3">
@@ -96,8 +91,8 @@
               </p>
             </div>
           </div>
-          <div class="inner_part">
-            <label for="slideImg" class="img_card">
+          <div class="inner_part" data-slide="4">
+            <label class="img_card">
               <img class="img_4" src="img/editing.jpg" />
             </label>
             <div class="content content_4">
