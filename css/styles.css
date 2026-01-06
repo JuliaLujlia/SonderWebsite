@@ -66,7 +66,7 @@ footer {
 
 /* Video Style Making of */
 .video_container {
-  flex: 1;
+  flex: 0;
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
@@ -100,20 +100,21 @@ footer {
 .slideshow {
   display: flex;
   justify-content: center;
-  padding: 50px;
-  height: 100dvh;
+  min-height: 50dvh;
+  height: auto;
+  margin-top: 25px;
 }
 .card {
   display: flex;
   position: absolute;
-  height: 90%;
-  width: 100%;
-  max-width: 90%;
+  min-height: 90%;
+  width: 90%;
   margin: auto;
   background-color: var(--secondary-color);
   border-radius: 25px;
   box-shadow: 10px 0 50px rgba(0, 0, 0, 0.5);
   justify-content: center;
+  overflow: hidden;
 }
 
 .inner_part {
@@ -157,9 +158,13 @@ footer {
 .content {
   padding-left: 30px;
   width: 90%;
+  max-height: 40%;
   margin-right: 50px;
+  margin-bottom: 20 px;
   opacity: 0;
   transition: 0.6s;
+  overflow-y: auto;
+  max-width: 100%;
 }
 
 .inner_part.is-active .img_card img {
@@ -190,7 +195,7 @@ footer {
 
 .slider {
   position: absolute;
-  bottom: 25px;
+  bottom: 10px;
   z-index: 1;
 }
 
@@ -255,6 +260,7 @@ footer {
 @media (min-width: 768px) {
   /* TODO: Abstand zwischen p und Video bei mittlerer Bildschirmbreite anpassen*/
   .video_container {
+    flex: 1;
     max-height: 100dvh;
     justify-content: center;
     align-items: center;
@@ -282,6 +288,10 @@ footer {
     margin-left: 50px;
     width: 60%;
     height: auto;
+  }
+
+  .content {
+    max-height: 90%;
   }
 
   .img_card img {
