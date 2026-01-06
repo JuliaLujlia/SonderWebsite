@@ -149,7 +149,6 @@ footer {
   width: auto;
   aspect-ratio: 16 / 9; /* TODO: ggf. anpassen an Seitenverhältnis*/
   max-width: 90%;
-  cursor: pointer;
   opacity: 0;
   transition: 0.6s;
   border-radius: 20px;
@@ -246,7 +245,7 @@ footer {
   transition: transform 0.6s;
 }
 
-.slide-btn.active::before {
+.slide-btn.is-active::before {
   transform: scaleX(1);
 }
 

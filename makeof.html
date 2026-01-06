@@ -28,23 +28,31 @@
         </div>
         <p>
           <!-- TODO: Link austauschen-->
-          (Versions of this video with full audio descriptions for people with vision impairments are also available in
-          <a href="https://youtu.be/AEMoCmvpHgo" rel="noopener" target="_blank">English</a> )
+          Versions of this video with full audio descriptions for people with vision impairments are also available in
+          <a href="https://youtu.be/AEMoCmvpHgo" rel="noopener noreferrer" target="_blank"
+            >English with audio descriptions (opens in new window) </a
+          >.
         </p>
       </div>
-      <div class="slideshow">
+      <div role="slideshow" class="slideshow" aria-label="Slideshow about the process of the film production">
         <div class="card">
-          <div class="slider">
-            <button class="slide-btn" data-slide="1"></button>
-            <button class="slide-btn" data-slide="2"></button>
-            <button class="slide-btn" data-slide="3"></button>
-            <button class="slide-btn" data-slide="4"></button>
+          <div aria-label="slideshow navigation" class="slider">
+            <button aria-label="to Slide 1: The idea" aria-current="true" class="slide-btn" data-slide="1"></button>
+            <button aria-label="to Slide 2: concept" class="slide-btn" data-slide="2"></button>
+            <button aria-label="to Slide 3: film process" class="slide-btn" data-slide="3"></button>
+            <button aria-label="to Slide 4: post-processing" class="slide-btn" data-slide="4"></button>
           </div>
 
-          <div class="inner_part" data-slide="1">
-            <label class="img_card">
-              <img class="img_1" src="img/idea.png" />
-            </label>
+          <div
+            class="inner_part"
+            data-slide="1"
+            role="group"
+            aria-roledescription="slide"
+            aria-label="Slide 1 of 4: The idea"
+          >
+            <div class="img_card">
+              <img alt="A person walking stairs down" class="img_1" src="img/idea.png" />
+            </div>
             <div class="content content_1">
               <h2 class="title">The idea</h2>
               <p class="text">
@@ -58,10 +66,16 @@
             </div>
           </div>
 
-          <div class="inner_part" data-slide="2">
-            <label class="img_card">
-              <img class="img_2" src="img/concept.png" />
-            </label>
+          <div
+            class="inner_part"
+            data-slide="2"
+            role="group"
+            aria-roledescription="slide"
+            aria-label="Slide 2 of 4: concept"
+          >
+            <div class="img_card">
+              <img alt="conceptmap" class="img_2" src="img/concept.png" />
+            </div>
             <div class="content content_2">
               <h2 class="title">Concept</h2>
               <p class="text">
@@ -75,10 +89,16 @@
             </div>
           </div>
 
-          <div class="inner_part" data-slide="3">
-            <label class="img_card">
-              <img class="img_3" src="img/filming.jpg" />
-            </label>
+          <div
+            class="inner_part"
+            data-slide="3"
+            role="group"
+            aria-roledescription="slide"
+            aria-label="Slide 3 of 4: film process"
+          >
+            <div class="img_card">
+              <img alt="escalator in an tramstation by night" class="img_3" src="img/filming.jpg" />
+            </div>
             <div class="content content_3">
               <h2 class="title">Film process</h2>
               <p class="text">
@@ -91,10 +111,16 @@
               </p>
             </div>
           </div>
-          <div class="inner_part" data-slide="4">
-            <label class="img_card">
-              <img class="img_4" src="img/editing.jpg" />
-            </label>
+          <div
+            class="inner_part"
+            data-slide="4"
+            role="group"
+            aria-roledescription="slide"
+            aria-label="Slide 4 of 4: post-processing"
+          >
+            <div class="img_card">
+              <img alt="a guy cutting the film" class="img_4" src="img/editing.jpg" />
+            </div>
             <div class="content content_4">
               <h2 class="title">Post-processing</h2>
               <p class="text">
