@@ -1,0 +1,80 @@
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+
+    background-color: #565169;
+    border: 2px solid #19eaff;
+}
+
+.navbar .container-fluid {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.navbar-nav {
+    font-family: "Lexend Deca", sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.navbar-nav .nav-link {
+    color: #00383d !important;
+    text-decoration: none;
+}
+
+/* Hover & Fokus */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus-visible {
+    text-decoration: underline;
+    color: #19eaff !important;
+}
+
+.navbar-nav .nav-link.active {
+    color: #19eaff !important;
+}
+
+/* Logo (noch ändern) */
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    color: #19eaff;
+    display: block;
+}
+
+/* Hamburger */
+.custom-toggler-icon,
+.custom-toggler-icon::before,
+.custom-toggler-icon::after{
+  display:block;
+  width:28px;
+  height:3px;
+  background:#19eaff;
+  border-radius:2px;
+  content:"";
+  position:relative;
+}
+
+.custom-toggler-icon::before{
+  position:absolute;
+  top:-8px;
+  left:0;
+}
+
+.custom-toggler-icon::after{
+  position:absolute;
+  top:8px;
+  left:0;
+}
+
+.navbar .navbar-toggler{
+  border: 2px solid #19eaff;
+  padding: 0.7em 0.4em;
+}
+
+
