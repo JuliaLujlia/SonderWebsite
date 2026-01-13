@@ -4,8 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Making Of</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <script src="js/slider.js" defer></script>
+    <link rel="stylesheet" href="css/makingof.css" />
+    <script src="js/slideshow.js" defer></script>
+    <script src="https://kit.fontawesome.com/579dd5238a.js" crossorigin="anonymous"></script>
   </head>
   <body class="body_makingOf">
     <header>
@@ -36,12 +37,19 @@
       </div>
       <div role="slideshow" class="slideshow" aria-label="Slideshow about the process of the film production">
         <div class="card">
+          <button class="autoplay autoplay-stop" aria-label="Stop autoplay"><i class="fa-solid fa-pause"></i></button>
+          <button class="autoplay autoplay-start" aria-label="Start autoplay"><i class="fa-solid fa-play"></i></button>
+
           <div aria-label="slideshow navigation" class="slider">
             <button aria-label="to Slide 1: The idea" aria-current="true" class="slide-btn" data-slide="1"></button>
             <button aria-label="to Slide 2: concept" class="slide-btn" data-slide="2"></button>
             <button aria-label="to Slide 3: film process" class="slide-btn" data-slide="3"></button>
             <button aria-label="to Slide 4: post-processing" class="slide-btn" data-slide="4"></button>
           </div>
+
+          <button class="arrow arrow-prev" aria-label="Previous slide">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
 
           <div
             class="inner_part"
@@ -133,6 +141,7 @@
               </p>
             </div>
           </div>
+          <button class="arrow arrow-next" aria-label="Next slide"><i class="fa-solid fa-angle-right"></i></button>
         </div>
       </div>
     </main>
