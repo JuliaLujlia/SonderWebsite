@@ -5,6 +5,7 @@
   --text-color: #f8f9fa;
   --heading1: 34px;
   --heading2: 28px;
+  --heading3: 22px;
   --text: 16px;
 }
 * {
@@ -117,9 +118,14 @@ p {
 /* Container for text alternative - below video */
 .container_textalternative {
   flex: 0;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   margin-top: 10px;
   padding: 0 0.5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Text alternative content */
@@ -128,8 +134,9 @@ p {
   border-radius: 8px;
   padding: 20px;
   margin-top: 15px;
-  max-width: 100%;
   overflow-y: auto;
+  width: auto;
+  max-width: 100%;
 }
 
 .textalternative h2,
@@ -139,12 +146,12 @@ p {
   color: var(--text-color);
 }
 
-.textalternative h2 {
-  font-size: var(--heading2);
+.textalternative h3 {
+  font-size: var(--heading3);
 }
 
-.textalternative h3 {
-  font-size: 20px;
+.textalternative p {
+  text-align: left;
 }
 
 .textalternative ul,
@@ -159,84 +166,74 @@ p {
 /* Slideshow Making of Sytle*/
 /* TODO: mobile Version*/
 .slideshow {
-  position: relative;
   display: flex;
   justify-content: center;
-  min-height: 90dvh;
   height: auto;
   margin-top: 25px;
   z-index: 1;
+  padding: 20px 0;
 }
 .card {
   display: flex;
-  position: absolute;
-  inset: 0;
+  position: relative;
   width: 90%;
+  max-width: 90dvw;
   margin: auto;
   background-color: var(--secondary-color);
   border-radius: 25px;
   box-shadow: 10px 0 50px rgba(0, 0, 0, 0.5);
   justify-content: center;
   overflow: hidden;
+  min-height: 0;
 }
 
 .inner_part {
-  display: flex;
+  display: none;
   align-items: center;
   height: 90%;
   width: 100%;
-  position: absolute;
+  position: static;
   flex-direction: column;
-  margin-top: 10px;
-  opacity: 0;
-  pointer-events: none;
+  opacity: 1;
+  pointer-events: auto;
   transition: opacity 0.6s;
+  padding: 50px 60px 100px 60px;
 }
 
 .inner_part.is-active {
-  opacity: 1;
-  pointer-events: auto;
+  display: flex;
 }
 
 .inner_part .img_card {
-  display: flex;
-  justify-content: center;
-  height: 60%;
-  width: auto;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  flex-shrink: 0;
 }
 
 .img_card img {
   height: 100%;
-  width: auto;
-  aspect-ratio: 16 / 9; /* TODO: ggf. anpassen an Seitenverhältnis*/
-  max-width: 90%;
+  width: 100%;
+  object-fit: contain;
   opacity: 0;
   transition: 0.6s;
-  border-radius: 20px;
+  border-radius: 25px;
+  display: block;
 }
 
 .content {
-  padding-left: 30px;
-  width: 90%;
-  max-height: 40%;
-  margin-right: 50px;
-  margin-bottom: 20 px;
+  width: 100%;
+  max-width: 100%;
   opacity: 0;
   transition: 0.6s;
   overflow-y: auto;
-  max-width: 100%;
+  max-height: none;
+  margin-left: 15px;
 }
 
 .inner_part.is-active .img_card img {
   opacity: 1;
   transition-delay: 0.2s;
-}
-
-.content {
-  opacity: 0;
-  transition: 0.6s;
 }
 
 .inner_part.is-active .content {
@@ -253,6 +250,7 @@ p {
 .content .text {
   margin: 0 auto 30px auto;
   line-height: 1.5em;
+  text-align: left;
 }
 
 .slider {
@@ -288,8 +286,8 @@ p {
 
 .slide-btn {
   position: relative;
-  height: 10px;
-  width: 40px;
+  height: 24px;
+  width: 50px;
   background: var(--text-color);
   border-radius: 5px;
   border: none;
@@ -401,18 +399,41 @@ p {
   .card .inner_part {
     flex-direction: row;
     justify-content: center;
+    align-items: center;
   }
 
   .inner_part .img_card {
-    margin-left: 50px;
     width: 60%;
-    height: auto;
+    flex: 0 0 60%;
   }
 
   .content {
-    max-height: 90%;
+    width: 40%;
+    flex: 1;
   }
 
+  /* Controls dürfen weiterhin absolut sein */
+  .slider {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 12px;
+    z-index: 5;
+  }
+
+  .autoplay-btn {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 6;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 6;
+  }
   .img_card img {
     height: auto;
     width: 100%;
