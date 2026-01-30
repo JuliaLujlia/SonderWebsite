@@ -34,13 +34,14 @@ main {
   display: flex;
   flex-direction: column;
   min-height: 0;
+  gap: 1rem;
 }
 
 h1 {
   font-size: var(--heading1);
   color: var(--primary-color);
   text-align: center;
-  margin: 20px 0;
+  margin: 10px 0;
 }
 h2 {
   font-size: var(--heading2);
@@ -62,16 +63,19 @@ p {
 
 /* Video Style Making of */
 .video_container {
-  flex: 0;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
   min-height: 0;
+  max-height: none;
+  justify-content: center;
 }
 
 .video_wrapper {
   width: 100%;
   max-width: 100%;
+  height: auto;
   aspect-ratio: 16 / 9;
   position: relative;
   flex-shrink: 0;
@@ -91,19 +95,82 @@ p {
   font-size: 0.9rem;
 }
 
+.dropdown,
+.dropup {
+  background: transparent;
+  border: none;
+}
+
+.dropdown i,
+.dropup i {
+  font-size: 24px;
+  color: white;
+  pointer-events: none;
+}
+
+.textalternative.is-hidden,
+.dropup.is-hidden,
+.dropdown.is-hidden {
+  display: none;
+}
+
+/* Container for text alternative - below video */
+.container_textalternative {
+  flex: 0;
+  width: 100%;
+  margin-top: 10px;
+  padding: 0 0.5rem;
+}
+
+/* Text alternative content */
+.textalternative {
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 15px;
+  max-width: 100%;
+  overflow-y: auto;
+}
+
+.textalternative h2,
+.textalternative h3 {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.textalternative h2 {
+  font-size: var(--heading2);
+}
+
+.textalternative h3 {
+  font-size: 20px;
+}
+
+.textalternative ul,
+.textalternative ol {
+  margin-left: 20px;
+  color: var(--text-color);
+}
+
+.textalternative li {
+  margin-bottom: 10px;
+}
 /* Slideshow Making of Sytle*/
 /* TODO: mobile Version*/
 .slideshow {
+  position: relative;
   display: flex;
   justify-content: center;
-  min-height: 50dvh;
+  min-height: 90dvh;
   height: auto;
   margin-top: 25px;
+  z-index: 1;
 }
 .card {
   display: flex;
   position: absolute;
-  min-height: 90%;
+  inset: 0;
   width: 90%;
   margin: auto;
   background-color: var(--secondary-color);
@@ -247,13 +314,17 @@ p {
 
 .arrow {
   position: absolute;
-  top: 0;
-  width: 80px;
-  height: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
   background: transparent;
   border: none;
   cursor: pointer;
   z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .arrow:hover i {
@@ -262,17 +333,17 @@ p {
 
 .arrow i,
 .autoplay i {
-  font-size: 48px;
+  font-size: 24px;
   color: white;
   pointer-events: none;
 }
 
 .arrow-prev {
-  left: 0;
+  left: 20px;
 }
 
 .arrow-next {
-  right: 0;
+  right: 20px;
 }
 
 .arrow.is-hidden,
@@ -280,19 +351,36 @@ p {
   display: none;
 }
 
-.autoplay {
+.autoplay-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: auto;
+  width: auto;
   position: absolute;
-  width: 80px;
-  height: 20%;
+  top: 20px;
+  left: 20px;
+  z-index: 25;
+}
+.autoplay {
+  position: relative;
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
   background: transparent;
   border: none;
   cursor: pointer;
   z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .autoplay-start,
 .autoplay-stop {
-  left: 0;
+  position: relative;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -304,24 +392,10 @@ p {
 
 @media (min-width: 768px) {
   /* TODO: Abstand zwischen p und Video bei mittlerer Bildschirmbreite anpassen*/
-  .video_container {
-    flex: 1;
-    max-height: 100dvh;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .video_wrapper {
-    flex: 1;
-    display: flex;
-    min-height: 0;
-    width: auto;
-  }
 
   .video_wrapper iframe {
     height: 100%;
     max-height: 100%;
-    aspect-ratio: 16 / 9;
   }
 
   .card .inner_part {
@@ -359,5 +433,22 @@ p {
     margin-top: 50px;
     z-index: 99;
     transition: 0.3s ease-in;
+  }
+}
+
+@media (min-width: 1200px) {
+  .video_container {
+    flex: 1;
+    max-height: 100dvh;
+    max-width: 100dvw;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .video_wrapper {
+    width: 100%;
+    max-width: 80dvw;
+    flex: 0 1 auto;
+    aspect-ratio: 16 / 9;
   }
 }

@@ -110,11 +110,12 @@ document.addEventListener("DOMContentLoaded", () => {
 autoplay_start.forEach((btn) => {
   btn.addEventListener("click", () => {
     autoPlayInterval = setInterval(autoPlay, SLIDE_INTERVAL);
-    btn.setAttribute("aria-pressed", "false");
+    btn.setAttribute("aria-pressed", "true");
     btn.classList.add("is-hidden");
 
     // Stop-Button sichtbar machen
     autoplay_stop.forEach((stopBtn) => {
+      stopBtn.setAttribute("aria-pressed", "false");
       stopBtn.classList.remove("is-hidden");
     });
   });
@@ -123,11 +124,12 @@ autoplay_start.forEach((btn) => {
 autoplay_stop.forEach((btn) => {
   btn.addEventListener("click", () => {
     clearInterval(autoPlayInterval);
-    btn.setAttribute("aria-pressed", "true");
+    btn.setAttribute("aria-pressed", "false");
     btn.classList.add("is-hidden");
 
     // Start-Button sichtbar machen
     autoplay_start.forEach((startBtn) => {
+      startBtn.setAttribute("aria-pressed", "true");
       startBtn.classList.remove("is-hidden");
     });
   });
