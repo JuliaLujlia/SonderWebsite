@@ -85,8 +85,8 @@ buttons_next.forEach((btn) => {
 });
 
 document.addEventListener("keydown", (e) => {
-  if (e.key === "ArrowLeft") showSlide(parseInt(activeSlide) - 1);
-  if (e.key === "ArrowRight") showSlide(parseInt(activeSlide) + 1);
+  if (e.key === "ArrowLeft" && activeSlide !== "1") showSlide(parseInt(activeSlide) - 1);
+  if (e.key === "ArrowRight" && activeSlide !== "4") showSlide(parseInt(activeSlide) + 1);
 });
 
 function autoPlay() {
