@@ -1,63 +1,118 @@
-/* Navbar */
-.navbar {
-    position: sticky;
-    top: 0;
+:root{
+  /* Base (moody) */
+  --nav-bg-1: #0f162c;
+  --nav-bg-2: #20183e;
+  --nav-border: rgba(64, 224, 255, 0.35);
 
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
+  /* Neon */
+  --neon: #2de2ff;
+  --tungsten: #ffd36a;
+  --ember: #ff4d3d;
 
-    background-color: #565169;
-    border: 2px solid #19eaff;
+  /* Text */
+  --text: rgba(255,255,255,0.92);
+  --text-muted: rgba(255,255,255,0.72);
+
+  /* Focus */
+  --focus: #2de2ff;
 }
 
-.navbar .container-fluid {
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
+/* Navbar container */
+.navbar{
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0;
+
+  /* Gradient */
+  background:
+    radial-gradient(1200px 120px at 20% 0%, rgba(45,226,255,0.18), transparent 55%),
+    radial-gradient(900px 140px at 80% 20%, rgba(255, 77, 61, 0.14), transparent 60%),
+    linear-gradient(90deg, var(--nav-bg-1), var(--nav-bg-2));
+
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+  box-shadow:
+    0 10px 24px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
-.navbar-nav {
-    font-family: "Lexend Deca", sans-serif;
-    font-weight: 600;
-    font-size: 1.2rem;
+
+/* Logo */
+.logo-icon{
+  width: 32px;
+  height: 32px;
+  color: var(--neon);
+  display:block;
+
+  /* Neon glow */
+  filter: drop-shadow(0 0 10px rgba(45,226,255,0.35));
 }
 
-.navbar-nav .nav-link {
-    color: #00383d !important;
-    text-decoration: none;
+
+/* Nav text */
+.navbar-nav{
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.2px;
 }
 
-/* Hover & Fokus */
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus-visible {
-    text-decoration: underline;
-    color: #19eaff !important;
+.navbar-nav .nav-link{
+  color: var(--text) !important;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 10px;
 }
 
-.navbar-nav .nav-link.active {
-    color: #19eaff !important;
+
+/* Hover */
+.navbar-nav .nav-link:hover{
+  background-color: rgba(255,255,255,0.06);
+  transform: translateY(-1px);
 }
 
-/* Logo (noch ändern) */
-.logo-icon {
-    width: 32px;
-    height: 32px;
-    color: #19eaff;
-    display: block;
+/* Active */
+.navbar-nav .nav-link.active{
+  color: var(--tungsten) !important;
+  box-shadow: inset 0 -2px 0 rgba(255,211,106,0.85);
 }
 
-/* Hamburger */
+/* Focus */
+.navbar-nav .nav-link:focus-visible,
+.navbar-toggler:focus-visible{
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(45,226,255,0.25);
+}
+
+
+/* Hamburger (Button) */
+.navbar .navbar-toggler{
+  border: 1px solid rgba(45,226,255,0.55);
+  border-radius: 14px;
+  padding: 0.75em 0.55em;
+  background: rgba(0,0,0,0.15);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.06) inset,
+    0 10px 18px rgba(0,0,0,0.25);
+}
+
+/* Hamburger icon */
 .custom-toggler-icon,
 .custom-toggler-icon::before,
 .custom-toggler-icon::after{
   display:block;
   width:28px;
   height:3px;
-  background:#19eaff;
-  border-radius:2px;
+  background: rgba(255,211,106,0.95); /* tungsten */
+  border-radius: 2px;
   content:"";
-  position:relative;
+  position: relative;
+
+  /* Glow */
+  box-shadow: 0 0 12px rgba(255,211,106,0.25);
 }
 
 .custom-toggler-icon::before{
@@ -65,16 +120,8 @@
   top:-8px;
   left:0;
 }
-
 .custom-toggler-icon::after{
   position:absolute;
   top:8px;
   left:0;
 }
-
-.navbar .navbar-toggler{
-  border: 2px solid #19eaff;
-  padding: 0.7em 0.4em;
-}
-
-
