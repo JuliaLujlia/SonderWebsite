@@ -1,0 +1,71 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+}
+
+.collage-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 10px;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+.item {
+    background-size: cover;
+    background-position: center;
+    background-color: #1a1a1a;
+}
+
+/* Deine Bilder (Pfade bitte beibehalten) */
+.pic1 { grid-area: 1 / 1 / 3 / 3; background-image: url('assets/images00.jpeg'); }
+.pic2 { grid-area: 1 / 3 / 2 / 5; background-image: url('assets/images01.jpeg'); }
+.pic3 { grid-area: 1 / 5 / 3 / 7; background-image: url('assets/images02.jpeg'); }
+.pic4 { grid-area: 1 / 7 / 4 / 9; background-image: url('assets/images03.jpeg'); }
+.pic5 { grid-area: 2 / 3 / 4 / 5; background-image: url('assets/images04.jpg'); }
+.pic6 { grid-area: 3 / 1 / 5 / 3; background-image: url('assets/images05.jpeg'); }
+.pic7 { grid-area: 3 / 5 / 4 / 7; background-image: url('assets/images06.jpg'); }
+.pic8 { grid-area: 4 / 3 / 7 / 6; background-image: url('assets/images07.jpg'); }
+.pic9 { grid-area: 4 / 6 / 6 / 9; background-image: url('assets/images08.jpg'); }
+.pic10 { grid-area: 5 / 1 / 7 / 3; background-image: url('assets/images09.png'); }
+.pic11 { grid-area: 6 / 6 / 7 / 9; background-image: url('assets/images10.jpeg'); }
+
+/* Die zentrierte Schrift */
+.center-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    
+    font-size: 20vw; /* Riesig */
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+
+    line-height: 0.8; /* Schiebt die Zeilen enger zusammen */
+    text-align: right; /* Oder 'right', je nachdem in welche Richtung es versetzt sein soll */
+    letter-spacing: -0.05em;
+    
+    /* Der Effekt */
+    mix-blend-mode: difference;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Resolution_Grain.png');
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 10;
+}
