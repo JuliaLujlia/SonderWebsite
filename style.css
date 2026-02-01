@@ -25,7 +25,7 @@ body, html {
     background-color: #1a1a1a;
 }
 
-/* Deine Bilder (Pfade bitte beibehalten) */
+
 .pic1 { grid-area: 1 / 1 / 3 / 3; background-image: url('assets/images00.jpeg'); }
 .pic2 { grid-area: 1 / 3 / 2 / 5; background-image: url('assets/images01.jpeg'); }
 .pic3 { grid-area: 1 / 5 / 3 / 7; background-image: url('assets/images02.jpeg'); }
@@ -38,7 +38,7 @@ body, html {
 .pic10 { grid-area: 5 / 1 / 7 / 3; background-image: url('assets/images09.png'); }
 .pic11 { grid-area: 6 / 6 / 7 / 9; background-image: url('assets/images10.jpeg'); }
 
-/* Die zentrierte Schrift */
+
 .center-title {
     position: absolute;
     top: 50%;
@@ -51,8 +51,8 @@ body, html {
     color: white;
     text-transform: uppercase;
 
-    line-height: 0.8; /* Schiebt die Zeilen enger zusammen */
-    text-align: right; /* Oder 'right', je nachdem in welche Richtung es versetzt sein soll */
+    line-height: 0.8; 
+    text-align: right; 
     letter-spacing: -0.05em;
     
     /* Der Effekt */
