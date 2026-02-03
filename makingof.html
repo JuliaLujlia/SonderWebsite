@@ -10,7 +10,11 @@
     <link rel="stylesheet" href="css/makingof.css" />
     <script src="js/slideshow.js" defer></script>
     <script src="js/textalternative.js" defer></script>
+    <script src="js/arialive.js" defer></script>
     <script src="https://kit.fontawesome.com/579dd5238a.js" crossorigin="anonymous"></script>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+</style>
   </head>
   <body class="body_makingOf">
     <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navigation"> <!-- ohne Label wird es nicht gesagt, mit label zweimal gesagt -->
@@ -62,8 +66,10 @@
         </div>
     </nav>
 
-    <main>
+    <main>  
       <h1>The Making Of "Too Late to Notice"</h1>
+      <a class="skip-link" href="#slideshow" id="skipToSlideshow" aria-label="skip video">skip video</a>
+      <div id="skipvideo-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
       <div class="video_container">
         <div class="video_wrapper">
           <!-- TODO: Link austauschen-->
@@ -85,10 +91,13 @@
         </p>
         </div>
       <div class="container_textalternative">
-        <p>Text alternative 
-          <button class="dropdown" aria-label="show text alternative" aria-controls="textalternative" aria-expanded="false"><i class="fa-solid fa-angle-down"></i></i></button>
-          <button class="dropup" aria-label="hide text alternative" aria-controls="textalternative" aria-expanded="false"><i class="fa-solid fa-angle-up"></i></i></button>
-        </p>
+        <div class="wrapper_textalt">
+          <p>Text alternative </p>
+          <button class="dropdown" id="ShowText" aria-label="show text alternative" aria-controls="textalternative" aria-expanded="false"><i class="fa-solid fa-angle-down"></i></i></button>
+          <div id="textexpanded-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+          <button class="dropup" id="HideText" aria-label="hide text alternative" aria-controls="textalternative" aria-expanded="false"><i class="fa-solid fa-angle-up"></i></i></button>
+          <div id="texthide-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+        </div>
       
         <div class="textalternative" id="textalternative">
           <h2>TITLE: TOO LATE TO NOTICE</h2>
@@ -219,24 +228,30 @@
 
         </div>
       </div>
-      <div role="region" class="slideshow" aria-label="Slideshow about the process of the film production" tabindex="0">
+      <div role="region" class="slideshow" id="slideshow" aria-label="Slideshow about the process of the film production" tabindex="0">
         <div class="card">
           <div class="autoplay-btn">
-            <button class="autoplay autoplay-stop" aria-label="Stop autoplay"><i class="fa-solid fa-pause"></i></button>
-            <button class="autoplay autoplay-start" aria-label="Start autoplay">
-              <i class="fa-solid fa-play"></i>
-            </button>
+            <button class="autoplay autoplay-stop" id="StopSlideshow" aria-label="Stop autoplay"><i class="fa-solid fa-pause"></i></button>
+            <div id="stopslideshow-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+            <button class="autoplay autoplay-start" id="StartSlideshow" aria-label="Start autoplay"><i class="fa-solid fa-play"></i></button>
+            <div id="startslideshow-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+            
           </div>
 
           <div aria-label="slideshow navigation" class="slider">
-            <button aria-label="to Slide 1 of 4" aria-current="true" class="slide-btn" data-slide="1"></button>
-            <button aria-label="to Slide 2 of 4" class="slide-btn" data-slide="2"></button>
-            <button aria-label="to Slide 3 of 4" class="slide-btn" data-slide="3"></button>
-            <button aria-label="to Slide 4 of 4" class="slide-btn" data-slide="4"></button>
+            <button aria-label="to Slide 1 of 4" aria-current="true" class="slide-btn" id="btn-slide1" data-slide="1"></button>
+            <div id="slide1-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+            <button aria-label="to Slide 2 of 4" class="slide-btn" id="btn-slide2" data-slide="2"></button>
+            <div id="slide2-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+            <button aria-label="to Slide 3 of 4" class="slide-btn" id="btn-slide3" data-slide="3"></button>
+            <div id="slide3-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+            <button aria-label="to Slide 4 of 4" class="slide-btn" id="btn-slide4" data-slide="4"></button>
+            <div id="slide4-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
           </div>
 
           <div
             class="inner_part"
+            id="slide1"
             data-slide="1"
             role="group"
             aria-roledescription="slide"
@@ -297,14 +312,12 @@
               <p class="text">Lorem ipsum dolor sit amet.</p>
             </div>
           </div>
-          <button class="arrow arrow-prev" aria-label="Previous slide">
-            <i class="fa-solid fa-angle-left"></i>
-          </button>
-          <button class="arrow arrow-next" aria-label="Next slide"><i class="fa-solid fa-angle-right"></i></button>
+          <button class="arrow arrow-prev" id="ToPrevSlide" aria-label="Previous slide"><i class="fa-solid fa-angle-left"></i></button>
+          <div id="prevslide-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+          <button class="arrow arrow-next" id="ToNextSlide" aria-label="Next slide"><i class="fa-solid fa-angle-right"></i></button>
+          <div id="nextslide-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
         </div>
       </div>
     </main>
-
-    <footer></footer>
   </body>
 </html>
