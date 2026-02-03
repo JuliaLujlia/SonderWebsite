@@ -228,8 +228,8 @@
 
         </div>
       </div>
-      <div role="region" class="slideshow" id="slideshow" aria-label="Slideshow about the process of the film production" tabindex="0">
-        <div class="card">
+      <div role="region" class="slideshow" id="slideshow" aria-label="Slideshow about the process of the film production" >
+        <div class="wrapper">
           <div class="autoplay-btn">
             <button class="autoplay autoplay-stop" id="StopSlideshow" aria-label="Stop autoplay"><i class="fa-solid fa-pause"></i></button>
             <div id="stopslideshow-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
@@ -238,6 +238,84 @@
             
           </div>
 
+          
+          <div class="card">
+            <div class="wrapper_prev">
+              <button class="arrow arrow-prev" id="ToPrevSlide" aria-label="Previous slide"><i class="fa-solid fa-angle-left"></i></button>
+            
+              <div id="prevslide-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+            </div>
+            <div class="innerparts">
+              <div
+                class="inner_part"
+                id="slide1"
+                data-slide="1"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="Slide 1 of 4: The idea"
+              >
+                <div class="img_card">
+                  <img alt="A person walking stairs down" class="img_1" src="img/idea.png" />
+                </div>
+                <div class="content content_1">
+                  <h2 aria-hidden="true" class="title">The idea</h2>
+                  <p class="text">Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+
+              <div
+                class="inner_part"
+                data-slide="2"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="Slide 2 of 4: concept"
+              >
+                <div class="img_card">
+                  <img alt="conceptmap" class="img_2" src="img/concept.png" />
+                </div>
+                <div class="content content_2">
+                  <h2 aria-hidden="true" class="title">Concept</h2>
+                  <p class="text">Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+
+              <div
+                class="inner_part"
+                data-slide="3"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="Slide 3 of 4: film process"
+              >
+                <div class="img_card">
+                  <img alt="escalator in an tramstation by night" class="img_3" src="img/filming.jpg" />
+                </div>
+                <div class="content content_3">
+                  <h2 aria-hidden="true" class="title">Film process</h2>
+                  <p class="text">Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+              <div
+                class="inner_part"
+                data-slide="4"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="Slide 4 of 4: post-processing"
+              >
+                <div class="img_card">
+                  <img alt="a guy cutting the film" class="img_4" src="img/editing.jpg" />
+                </div>
+                <div class="content content_4">
+                  <h2 aria-hidden="true" class="title">Post-processing</h2>
+                  <p class="text">Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+            </div>
+            <div class="wrapper_next">
+              <button class="arrow arrow-next" id="ToNextSlide" aria-label="Next slide"><i class="fa-solid fa-angle-right"></i></button>
+            
+              <div id="nextslide-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+            </div>
+          </div>
           <div aria-label="slideshow navigation" class="slider">
             <button aria-label="to Slide 1 of 4" aria-current="true" class="slide-btn" id="btn-slide1" data-slide="1"></button>
             <div id="slide1-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
@@ -248,74 +326,6 @@
             <button aria-label="to Slide 4 of 4" class="slide-btn" id="btn-slide4" data-slide="4"></button>
             <div id="slide4-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
           </div>
-
-          <div
-            class="inner_part"
-            id="slide1"
-            data-slide="1"
-            role="group"
-            aria-roledescription="slide"
-            aria-label="Slide 1 of 4: The idea"
-          >
-            <div class="img_card">
-              <img alt="A person walking stairs down" class="img_1" src="img/idea.png" />
-            </div>
-            <div class="content content_1">
-              <h2 aria-hidden="true" class="title">The idea</h2>
-              <p class="text">Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</p>
-            </div>
-          </div>
-
-          <div
-            class="inner_part"
-            data-slide="2"
-            role="group"
-            aria-roledescription="slide"
-            aria-label="Slide 2 of 4: concept"
-          >
-            <div class="img_card">
-              <img alt="conceptmap" class="img_2" src="img/concept.png" />
-            </div>
-            <div class="content content_2">
-              <h2 aria-hidden="true" class="title">Concept</h2>
-              <p class="text">Lorem ipsum dolor sit amet.</p>
-            </div>
-          </div>
-
-          <div
-            class="inner_part"
-            data-slide="3"
-            role="group"
-            aria-roledescription="slide"
-            aria-label="Slide 3 of 4: film process"
-          >
-            <div class="img_card">
-              <img alt="escalator in an tramstation by night" class="img_3" src="img/filming.jpg" />
-            </div>
-            <div class="content content_3">
-              <h2 aria-hidden="true" class="title">Film process</h2>
-              <p class="text">Lorem ipsum dolor sit amet.</p>
-            </div>
-          </div>
-          <div
-            class="inner_part"
-            data-slide="4"
-            role="group"
-            aria-roledescription="slide"
-            aria-label="Slide 4 of 4: post-processing"
-          >
-            <div class="img_card">
-              <img alt="a guy cutting the film" class="img_4" src="img/editing.jpg" />
-            </div>
-            <div class="content content_4">
-              <h2 aria-hidden="true" class="title">Post-processing</h2>
-              <p class="text">Lorem ipsum dolor sit amet.</p>
-            </div>
-          </div>
-          <button class="arrow arrow-prev" id="ToPrevSlide" aria-label="Previous slide"><i class="fa-solid fa-angle-left"></i></button>
-          <div id="prevslide-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
-          <button class="arrow arrow-next" id="ToNextSlide" aria-label="Next slide"><i class="fa-solid fa-angle-right"></i></button>
-          <div id="nextslide-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
         </div>
       </div>
     </main>

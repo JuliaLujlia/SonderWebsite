@@ -6,6 +6,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+*:focus {
+  /* inner indicator */
+  outline: 3px var(--focus) solid;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(45, 226, 255, 0.25);
+}
+
 html {
   height: 100%;
 }
@@ -97,8 +105,6 @@ p {
   overflow: visible;
   margin: 0 auto;
   padding: 10px 16px;
-  outline: 3px solid var(--focus);
-  outline-offset: 3px;
 }
 
 /* Video Style Making of */
@@ -216,52 +222,79 @@ p {
   justify-content: center;
   height: auto;
   z-index: 1;
-  padding: 20px 0;
+  min-height: 100dvh;
+}
+
+.wrapper {
+  flex-direction: column;
+  width: 90%;
+  height: auto;
+  background-color: var(--secondary-color);
+  border-radius: 25px;
+  box-shadow: 10px 0 50px var(--secondary-color);
 }
 .card {
   display: flex;
   position: relative;
-  width: 90%;
+  width: 100%;
   max-width: 90dvw;
   margin: auto;
-  background-color: var(--secondary-color);
-  border-radius: 25px;
-  box-shadow: 10px 0 50px var(--secondary-color);
+  flex-direction: row;
   justify-content: center;
-  overflow: hidden;
-  min-height: 80dvh;
-  height: auto;
-  padding-bottom: 50px;
+  overflow: visible;
+  height: 80%;
+  background-color: transparent;
+  border-radius: 0px;
+  border: none;
 }
 
+.wrapper_prev,
+.wrapper_next {
+  width: 30px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.innerparts {
+  position: relative;
+  width: calc(100% - 60px);
+}
 .inner_part {
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   width: 100%;
+  height: 100%;
   flex-direction: column;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.6s ease;
-  padding: 50px 60px 30px 60px;
 }
 
 .inner_part.is-active {
+  position: relative;
   opacity: 1;
   pointer-events: auto;
 }
 
 .inner_part .img_card {
   width: 100%;
-  max-width: 100%;
-  aspect-ratio: 16 / 9;
+  max-height: 60vh;
+  min-height: 20vh;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .img_card img {
-  height: 100%;
-  width: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
   object-fit: contain;
   opacity: 0;
   transition: opacity 0.6s ease-in-out 0s;
@@ -271,12 +304,11 @@ p {
 
 .content {
   width: 100%;
-  max-width: 100%;
   opacity: 0;
   transition: opacity 0.6s ease-in-out 0s;
   overflow-y: auto;
-  max-height: none;
-  margin-left: 15px;
+  margin: 0 auto 1rem auto;
+  padding: 0 1rem;
 }
 
 .inner_part.is-active .img_card img {
@@ -291,7 +323,6 @@ p {
 }
 
 .content .title {
-  font-weight: 700;
   margin: 0 0 20px 0;
 }
 
@@ -302,9 +333,11 @@ p {
 }
 
 .slider {
-  position: absolute;
-  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  position: relative;
   z-index: 1;
+  height: 10%;
 }
 
 .slider .slide {
@@ -359,8 +392,7 @@ p {
 }
 
 .arrow {
-  position: absolute;
-  top: 50%;
+  position: relative;
   transform: translateY(-50%);
   width: 24px;
   height: 24px;
@@ -368,9 +400,6 @@ p {
   border: none;
   cursor: pointer;
   z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .arrow:hover i {
@@ -384,29 +413,18 @@ p {
   pointer-events: none;
 }
 
-.arrow-prev {
-  left: 20px;
-}
-
-.arrow-next {
-  right: 20px;
-}
-
 .arrow.is-hidden,
 .autoplay.is-hidden {
   display: none;
 }
 
 .autoplay-btn {
-  display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  height: auto;
+  height: 10%;
   width: auto;
-  position: absolute;
-  top: 20px;
-  left: 20px;
+  position: relative;
   z-index: 25;
 }
 .autoplay {
@@ -422,6 +440,8 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  top: 15px;
+  left: 15px;
 }
 
 .autoplay-start,
@@ -463,8 +483,8 @@ p {
     max-height: 100%;
   }
 
-  .card {
-    min-height: 70dvh;
+  .inner_part {
+    height: 100%;
   }
   .card .inner_part {
     flex-direction: row;
@@ -474,28 +494,12 @@ p {
 
   .inner_part .img_card {
     width: 60%;
-    flex: 0 0 60%;
+    height: 100%;
   }
 
   .content {
     width: 40%;
-    flex: 1;
-  }
-
-  /* Controls dürfen weiterhin absolut sein */
-  .slider {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 12px;
-    z-index: 5;
-  }
-
-  .autoplay-btn {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    z-index: 6;
+    min-height: 0;
   }
 
   .arrow {
@@ -541,9 +545,5 @@ p {
     max-width: 80dvw;
     flex: 0 1 auto;
     aspect-ratio: 16 / 9;
-  }
-
-  .card {
-    max-width: 80dvw;
   }
 }
