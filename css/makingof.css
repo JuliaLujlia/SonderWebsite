@@ -1,13 +1,6 @@
+@import url("./variables.css");
+
 /* Variablen für Farben & Fontsize */
-:root {
-  --primary-color: #bc6c25;
-  --secondary-color: #0f1a1995; /* letzten 2 Stellen für Transparenz */
-  --text-color: #f8f9fa;
-  --heading1: 34px;
-  --heading2: 28px;
-  --heading3: 22px;
-  --text: 16px;
-}
 * {
   margin: 0;
   padding: 0;
@@ -23,11 +16,6 @@ body {
   color: #333;
   display: flex;
   flex-direction: column;
-}
-
-header {
-  height: 50px;
-  flex-shrink: 0;
 }
 
 main {

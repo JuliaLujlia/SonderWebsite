@@ -1,0 +1,33 @@
+/* ===== ZENTRALE CSS VARIABLEN ===== */
+/* Diese Datei wird in allen anderen CSS-Dateien importiert */
+
+:root {
+  /* ===== NAVBAR VARIABLEN ===== */
+  /* Base */
+  --nav-bg-1: #0f162c;
+  --nav-bg-2: #20183e;
+  --nav-border: rgba(64, 224, 255, 0.35);
+
+  /* Neon */
+  --neon: #2de2ff;
+  --tungsten: #ffd36a;
+  --ember: #ff4d3d;
+
+  /* Text */
+  --text: rgba(255, 255, 255, 0.92);
+  --text-muted: rgba(255, 255, 255, 0.72);
+
+  /* Focus */
+  --focus: #2de2ff;
+
+  /* ===== MAKINGOF VARIABLEN ===== */
+  --primary-color: #bc6c25;
+  --secondary-color: #0f1a1995;
+  --text-color: #f8f9fa;
+
+  /* Heading Sizes */
+  --heading1: 34px;
+  --heading2: 28px;
+  --heading3: 22px;
+  --text-size: 16px;
+}
