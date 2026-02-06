@@ -9,6 +9,11 @@ let activeSlide = "1"; // Als String, wie data-slide
 let autoPlayInterval;
 const SLIDE_INTERVAL = 5000;
 
+// Überprüfe, ob der Benutzer reduzierte Bewegungen bevorzugt
+function prefersReducedMotion() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
 function showSlide(index) {
   console.log(index);
   activeSlide = String(index); // In String konvertieren
@@ -84,9 +89,29 @@ buttons_next.forEach((btn) => {
   });
 });
 
-document.addEventListener("keydown", (e) => {
+// immer aktiv
+/*document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowLeft" && activeSlide !== "1") showSlide(parseInt(activeSlide) - 1);
   if (e.key === "ArrowRight" && activeSlide !== "4") showSlide(parseInt(activeSlide) + 1);
+});*/
+
+//aktiv wenn fokus in Slideshow
+document.addEventListener("keydown", (event) => {
+  const slideshow = document.querySelector(".slideshow");
+  const activeEl = document.activeElement;
+
+  // Nur reagieren, wenn Fokus in der Slideshow ist
+  if (!slideshow.contains(activeEl)) return;
+
+  if (event.key === "ArrowLeft" && activeSlide !== "1") {
+    event.preventDefault();
+    showSlide(parseInt(activeSlide) - 1);
+  }
+
+  if (event.key === "ArrowRight" && activeSlide !== "4") {
+    event.preventDefault();
+    showSlide(parseInt(activeSlide) + 1);
+  }
 });
 
 function autoPlay() {
@@ -95,15 +120,48 @@ function autoPlay() {
 
 function resetAutoPlay() {
   clearInterval(autoPlayInterval);
-  autoPlayInterval = setInterval(autoPlay, SLIDE_INTERVAL);
+  // Starte Autoplay nur wenn Benutzer keine reduzierten Bewegungen bevorzugt
+  if (!prefersReducedMotion()) {
+    autoPlayInterval = setInterval(autoPlay, SLIDE_INTERVAL);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   showSlide("1");
-  autoPlayInterval = setInterval(autoPlay, SLIDE_INTERVAL);
-  // Start-Button mit is-hidden initialisieren
-  autoplay_start.forEach((btn) => {
-    btn.classList.add("is-hidden");
+  // Starte Autoplay nur wenn Benutzer keine reduzierten Bewegungen bevorzugt
+  if (!prefersReducedMotion()) {
+    autoPlayInterval = setInterval(autoPlay, SLIDE_INTERVAL);
+    // Start-Button verstecken wenn Autoplay aktiv
+    autoplay_start.forEach((btn) => {
+      btn.classList.add("is-hidden");
+    });
+  } else {
+    // Wenn reduce motion aktiv: Start-Button anzeigen, Stop-Button verstecken
+    autoplay_start.forEach((btn) => {
+      btn.setAttribute("aria-pressed", "true");
+      btn.classList.remove("is-hidden");
+    });
+    autoplay_stop.forEach((btn) => {
+      btn.setAttribute("aria-pressed", "false");
+      btn.classList.add("is-hidden");
+    });
+  }
+
+  // Überwache Änderungen in Bewegungspräferenzen
+  const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  mediaQuery.addListener((e) => {
+    if (e.matches) {
+      // Benutzer hat jetzt reduzierte Bewegungen aktiviert
+      clearInterval(autoPlayInterval);
+      autoplay_start.forEach((btn) => {
+        btn.setAttribute("aria-pressed", "true");
+        btn.classList.remove("is-hidden");
+      });
+      autoplay_stop.forEach((btn) => {
+        btn.setAttribute("aria-pressed", "false");
+        btn.classList.add("is-hidden");
+      });
+    }
   });
 });
 
