@@ -146,6 +146,11 @@ p {
 .dropup {
   background: transparent;
   border: none;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dropdown i,
@@ -207,7 +212,8 @@ p {
 }
 
 .textalternative ul,
-.textalternative ol {
+.textalternative ol,
+.textalternative dl {
   margin-left: 20px;
   color: var(--text-color);
 }
@@ -507,10 +513,6 @@ p {
     top: 50%;
     transform: translateY(-50%);
     z-index: 6;
-  }
-  .img_card img {
-    height: auto;
-    width: 100%;
   }
 
   .card.is-expanded .slider {

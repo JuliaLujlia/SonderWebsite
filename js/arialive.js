@@ -74,6 +74,8 @@ btn_startSlide.addEventListener("click", () => {
   status_startSlide.textContent = "";
   setTimeout(() => {
     status_startSlide.textContent = "autoplay slideshow started";
+
+    btn_stopSlide.focus();
   }, 50);
 });
 
