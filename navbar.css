@@ -41,11 +41,6 @@
 
 /* Logo */
 .logo-icon{
-  width: 32px;
-  height: 32px;
-  color: var(--neon);
-  display:block;
-
   /* Neon glow */
   filter: drop-shadow(0 0 10px rgba(45,226,255,0.35));
 }
