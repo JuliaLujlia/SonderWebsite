@@ -61,6 +61,32 @@ body{
 }
 
 
+/*Lea Kopiert*/
+
+
+.dropdown,
+.dropup {
+  background: transparent;
+  border: none;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown i,
+.dropup i {
+  font-size: 24px;
+  color: white;
+  pointer-events: none;
+}
+
+.textalternative.is-hidden,
+.dropup.is-hidden,
+.dropdown.is-hidden {
+  display: none;
+}
 
 /* Container for text alternative - below video */
 .container_textalternative {
@@ -73,6 +99,12 @@ body{
   justify-content: center;
   flex-direction: column;
   align-items: center;
+}
+
+.wrapper_textalt {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 /* Text alternative content */
@@ -102,7 +134,8 @@ body{
 }
 
 .textalternative ul,
-.textalternative ol {
+.textalternative ol,
+.textalternative dl {
   margin-left: 20px;
   color: var(--text-color);
 }
@@ -111,22 +144,42 @@ body{
   margin-bottom: 10px;
 }
 
+.skip-link {
+  display: block;
+  margin: 0;
+  padding: 0px;
+  width: 150px;
+  text-align: center;
+  background: var(--secondary-color);
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 8px;
 
-.dropdown,
-.dropup {
-  background: transparent;
-  border: none;
+  /* unsichtbar solange kein Fokus */
+  opacity: 0;
+  pointer-events: none; /* nicht klickbar, solange unsichtbar */
+  height: 0;
+  overflow: hidden;
 }
 
-.dropdown i,
-.dropup i {
-  font-size: 24px;
-  color: white;
-  pointer-events: none;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
-
-.textalternative.is-hidden,
-.dropup.is-hidden,
-.dropdown.is-hidden {
-  display: none;
+/* wird sichtbar wenn man drauf tabbt */
+.skip-link:focus,
+.skip-link:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+  height: auto;
+  overflow: visible;
+  margin: 0 auto;
+  padding: 10px 16px;
 }

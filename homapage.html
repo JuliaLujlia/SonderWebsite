@@ -87,6 +87,8 @@
             <!-- Video Section -->
             <section class="video-section" aria-labelledby="video-title">
                 <h2 class="video-label" id="video-title">Shortfilm - Sonder</h2>
+                <a class="skip-link" href="#intro-section" id="skipToSlideshow" aria-label="skip making of video">skip video</a>
+                <div id="skipvideo-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 
                 <div class="video-container" id="video-embed" role="region" aria-label="YouTube Video">
                     <iframe
@@ -107,33 +109,52 @@
                 </p>
 
                 <div class="container_textalternative">
-                <p class="ta-head">
-                    Text alternative
+                    <div class="wrapper_textalt">
+                        <p>Text alternative </p>
+                        <button class="dropdown" id="ShowText" aria-label="show text alternative" aria-controls="textalternative" aria-expanded="false"><i class="fa-solid fa-angle-down"></i></i></button>
+                        <div id="textexpanded-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+                        <button class="dropup" id="HideText" aria-label="hide text alternative" aria-controls="textalternative" aria-expanded="false"><i class="fa-solid fa-angle-up"></i></i></button>
+                        <div id="texthide-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+                    </div>
+                
+                    <div class="textalternative" id="textalternative">
+                        <h2>TITLE: TOO LATE TO NOTICE</h2>
+                        <h3>CHARACTERS:</h3>
+                        <dl>
+                            <dt>THE MAN (30s):</dt><dd> Dressed in a corporate coat. 
+                            He is handsome but looks drained. He exists in a self-imposed bubble of isolation.</dd>
+                            <dt>THE STRANGER (40s-50s):</dt><dd> Homeless. Wears layers. 
+                            He is not a villain; he is a watcher.</dd>
+                        </dl>
 
-                    <button
-                        class="dropdown"
-                        id="ShowText"
-                        aria-label="show text alternative"
-                        aria-controls="textalternative"
-                        aria-expanded="false"
-                        type="button"
-                        >
-                        <i class="fa-solid fa-angle-down" aria-hidden="true"></i>
-                    </button>
-
-                    <button
-                        class="dropup is-hidden"
-                        id="HideText"
-                        aria-label="hide text alternative"
-                        aria-controls="textalternative"
-                        aria-expanded="false"
-                        type="button"
-                        >
-                        <i class="fa-solid fa-angle-up" aria-hidden="true"></i>
-                    </button>
-                </p>
-
-                    <div class="textalternative is-hidden" id="textalternative">
+                        <h3>ACT 1: THE ROUTINE</h3>
+                        <p>EXT. SUBWAY ENTRANCE (STAIRS) - NIGHT <br>
+                        (The Anchor - Routine)<br>
+                        [VISUAL] The Man stands at the top of the concrete stairs. It is a standard, cold city night. Blue-tinted lighting.<br>
+                        He buttons his coat to his chin. He puts on large noise-canceling headphones. He stares at his phone screen.<br>
+                        He descends the stairs like a zombie. People brush past him, but he doesn't flinch. He is in a bubble. He is isolated from the sound of the city.<br>
+                        THE MAN (V.O.)<br>
+                        Do you believe in miracles? Or do you believe in cycles?<br>
+                        INT. SUBWAY PLATFORM - NIGHT <br>
+                        (The Foreshadowing)<br>
+                        [VISUAL] The Man stands near the edge of the platform, waiting for the train. He is framed in the foreground, sharp focus, scrolling on his phone.<br>
+                        [BACKGROUND ACTION] Deep in the background, sitting on a metal bench, is THE STRANGER.<br>
+                        He is slightly out of focus (bokeh). While other commuters rush by in a blur, The Stranger is perfectly still. He is looking directly at The Man.<br>
+                        Note: The audience might miss him on the first watch, but he is there.<br>
+                        THE MAN (V.O.)<br>
+                        We spend our lives waiting. Waiting for the weekend. Waiting for the train. Waiting to feel something different.<br>
+                        INT. SUBWAY CAR / OFFICE / APARTMENT - NIGHT<br>
+                        (The Routine Montage)<br>
+                        [VISUAL] FAST CUTS. The editing accelerates to show the suffocating repetition.<br> </p>
+                        <ol type="1">
+                            <li>SUBWAY CAR: The Man sits. Reflection in the dark window.</li>
+                            <li>OFFICE: Typing at a desk in a dark room.</li>
+                            <li>APARTMENT: Entering. Throwing keys. Opening the fridge. Closing the fridge.</li>
+                            <li>REPEAT: Walking down the stairs (Day 2).</li>
+                            <li>REPEAT: Scrolling on the train (Day 3). (The Stranger is visible in the background again, sitting two rows back, watching).</li>
+                        </ol>
+                        <p>THE MAN (V.O.)<br>
+                            My life is a straight line. Point A to Point B. No detours. No surprises. Just the safety of the script.</p>
                         <h3>ACT 2: THE CHANGE</h3>
                         <p>EXT. SUBWAY ENTRANCE (STAIRS) - NIGHT<br>
                         (The Anchor - The Incident)<br>
@@ -228,7 +249,7 @@
 
 
             <!-- Intro Section -->
-            <section class="intro-section" aria-labelledby="intro-title">
+            <section id="intro-section" class="intro-section" aria-labelledby="intro-title" tabindex="-1">
             <h2 id="intro-title">Sonder</h2>
             <div class="intro-text">
                 <p> Every day, we walk past hundreds of people. On the street, in class, on the bus. 
