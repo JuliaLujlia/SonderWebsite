@@ -9,13 +9,21 @@ const text = document.querySelectorAll(".textalternative");
 // The reverse happens when a `.dropup` is pressed.
 
 function showTextAlternative(dropdownBtn) {
-  text.forEach((txt) => txt.classList.remove("is-hidden"));
-  buttons_dropup.forEach((btn) => btn.classList.remove("is-hidden"));
-  dropdownBtn.classList.add("is-hidden");
+  const container = dropdownBtn.closest(".container_textalternative");
+  const dropupBtn = container?.querySelector(".dropup");
+  const panel = container?.querySelector(".textalternative");
 
+  panel?.classList.remove("is-hidden");
+  dropupBtn?.classList.remove("is-hidden");
+
+  // Fokus rüber, bevor dropdown verschwindet
+  dropupBtn?.focus();
+
+  dropdownBtn.classList.add("is-hidden");
   dropdownBtn.setAttribute("aria-expanded", "true");
-  buttons_dropup.forEach((btn) => btn.setAttribute("aria-expanded", "true"));
+  dropupBtn?.setAttribute("aria-expanded", "true");
 }
+
 
 function hideTextAlternative(dropupBtn) {
   text.forEach((txt) => txt.classList.add("is-hidden"));
