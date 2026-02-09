@@ -61,4 +61,125 @@ body{
 }
 
 
+/*Lea Kopiert*/
 
+
+.dropdown,
+.dropup {
+  background: transparent;
+  border: none;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown i,
+.dropup i {
+  font-size: 24px;
+  color: white;
+  pointer-events: none;
+}
+
+.textalternative.is-hidden,
+.dropup.is-hidden,
+.dropdown.is-hidden {
+  display: none;
+}
+
+/* Container for text alternative - below video */
+.container_textalternative {
+  flex: 0;
+  width: auto;
+  max-width: 100%;
+  margin-top: 10px;
+  padding: 0 0.5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrapper_textalt {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* Text alternative content */
+.textalternative {
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 15px;
+  overflow-y: auto;
+  width: auto;
+  max-width: 100%;
+}
+
+.textalternative h2,
+.textalternative h3 {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.textalternative h3 {
+  font-size: var(--heading3);
+}
+
+.textalternative p {
+  text-align: left;
+}
+
+.textalternative ul,
+.textalternative ol,
+.textalternative dl {
+  margin-left: 20px;
+  color: var(--text-color);
+}
+
+.textalternative li {
+  margin-bottom: 10px;
+}
+
+.skip-link {
+  display: block;
+  margin: 0;
+  padding: 0px;
+  width: 150px;
+  text-align: center;
+  background: var(--secondary-color);
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 8px;
+
+  /* unsichtbar solange kein Fokus */
+  opacity: 0;
+  pointer-events: none; /* nicht klickbar, solange unsichtbar */
+  height: 0;
+  overflow: hidden;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+/* wird sichtbar wenn man drauf tabbt */
+.skip-link:focus,
+.skip-link:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+  height: auto;
+  overflow: visible;
+  margin: 0 auto;
+  padding: 10px 16px;
+}
