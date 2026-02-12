@@ -7,6 +7,7 @@ const autoplay_stop = document.querySelectorAll(".autoplay-stop");
 
 let activeSlide = "1"; // Als String, wie data-slide
 let autoPlayInterval;
+let isAutoplayEnabled = true;
 const SLIDE_INTERVAL = 5000;
 
 // Überprüfe, ob der Benutzer reduzierte Bewegungen bevorzugt
@@ -120,10 +121,11 @@ function autoPlay() {
 
 function resetAutoPlay() {
   clearInterval(autoPlayInterval);
-  // Starte Autoplay nur wenn Benutzer keine reduzierten Bewegungen bevorzugt
-  if (!prefersReducedMotion()) {
-    autoPlayInterval = setInterval(autoPlay, SLIDE_INTERVAL);
-  }
+
+  if (!isAutoplayEnabled) return;
+  if (prefersReducedMotion()) return;
+
+  autoPlayInterval = setInterval(autoPlay, SLIDE_INTERVAL);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -167,11 +169,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 autoplay_start.forEach((btn) => {
   btn.addEventListener("click", () => {
+    isAutoplayEnabled = true;
+
     autoPlayInterval = setInterval(autoPlay, SLIDE_INTERVAL);
     btn.setAttribute("aria-pressed", "true");
     btn.classList.add("is-hidden");
 
-    // Stop-Button sichtbar machen
     autoplay_stop.forEach((stopBtn) => {
       stopBtn.setAttribute("aria-pressed", "false");
       stopBtn.classList.remove("is-hidden");
@@ -181,11 +184,12 @@ autoplay_start.forEach((btn) => {
 
 autoplay_stop.forEach((btn) => {
   btn.addEventListener("click", () => {
+    isAutoplayEnabled = false;
     clearInterval(autoPlayInterval);
+
     btn.setAttribute("aria-pressed", "false");
     btn.classList.add("is-hidden");
 
-    // Start-Button sichtbar machen
     autoplay_start.forEach((startBtn) => {
       startBtn.setAttribute("aria-pressed", "true");
       startBtn.classList.remove("is-hidden");
