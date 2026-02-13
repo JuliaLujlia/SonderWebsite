@@ -222,7 +222,6 @@ p {
   margin-bottom: 10px;
 }
 /* Slideshow Making of Sytle*/
-/* TODO: mobile Version*/
 .slideshow {
   display: flex;
   justify-content: center;
@@ -232,9 +231,9 @@ p {
 }
 
 .wrapper {
-  position: relative; /* wichtig für Autoplay-Overlay */
+  position: relative;
   display: grid;
-  grid-template-rows: 1fr auto; /* Cards nehmen Platz, Slider unten */
+  grid-template-rows: 1fr auto;
   grid-template-areas:
     "card"
     "slider";
@@ -316,23 +315,21 @@ p {
 }
 .collage {
   position: absolute;
-  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  inset: 0;
   z-index: 2;
   background: transparent;
   pointer-events: auto;
   outline: none;
 }
 
-/* Die Hotspots müssen absolut sein */
 .collage > div {
   position: absolute;
   display: block;
-  pointer-events: auto; /* Hotspots sind klick-/fokussierbar */
+  pointer-events: auto;
   background: transparent;
   outline: none;
 }
 
-/* Fokus auf dem Hotspot (nicht auf .collage!) */
 .collage > div:focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 2px;
@@ -402,9 +399,9 @@ p {
 
 .slider {
   grid-area: slider;
-  justify-self: center; /* mittig */
-  align-self: end; /* unten */
-  margin: 1rem 0 1.25rem; /* bisschen Abstand nach unten */
+  justify-self: center;
+  align-self: end;
+  margin: 1rem 0 1.25rem;
   height: auto;
 }
 
