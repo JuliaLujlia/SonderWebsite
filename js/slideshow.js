@@ -4,6 +4,7 @@ const buttons_next = document.querySelectorAll(".arrow-next");
 const slides = document.querySelectorAll(".inner_part");
 const autoplay_start = document.querySelectorAll(".autoplay-start");
 const autoplay_stop = document.querySelectorAll(".autoplay-stop");
+const collageHotspots = document.querySelectorAll(".collage > div");
 
 let activeSlide = "1"; // Als String, wie data-slide
 let autoPlayInterval;
@@ -67,10 +68,24 @@ function showSlide(index) {
       btn.classList.remove("is-hidden");
     }
   });
+
+  // Collage-Hotspots nur auf Slide 3 fokussierbar
+  const isSlide3Active = activeSlide === "3";
+
+  collageHotspots.forEach((hotspot) => {
+    if (isSlide3Active) {
+      hotspot.setAttribute("tabindex", "0");
+      hotspot.removeAttribute("aria-hidden");
+    } else {
+      hotspot.setAttribute("tabindex", "-1");
+      hotspot.setAttribute("aria-hidden", "true");
+    }
+  });
 }
 
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
+    showSlide._shouldFocus = true;
     showSlide(btn.dataset.slide);
     resetAutoPlay();
   });
@@ -78,6 +93,7 @@ buttons.forEach((btn) => {
 
 buttons_prev.forEach((btn) => {
   btn.addEventListener("click", () => {
+    showSlide._shouldFocus = true;
     showSlide(parseInt(activeSlide) - 1);
     resetAutoPlay();
   });
@@ -85,32 +101,19 @@ buttons_prev.forEach((btn) => {
 
 buttons_next.forEach((btn) => {
   btn.addEventListener("click", () => {
+    showSlide._shouldFocus = true;
     showSlide(parseInt(activeSlide) + 1);
     resetAutoPlay();
   });
 });
 
-// immer aktiv
-/*document.addEventListener("keydown", (e) => {
-  if (e.key === "ArrowLeft" && activeSlide !== "1") showSlide(parseInt(activeSlide) - 1);
-  if (e.key === "ArrowRight" && activeSlide !== "4") showSlide(parseInt(activeSlide) + 1);
-});*/
-
-//aktiv wenn fokus in Slideshow
-document.addEventListener("keydown", (event) => {
-  const slideshow = document.querySelector(".slideshow");
-  const activeEl = document.activeElement;
-
-  // Nur reagieren, wenn Fokus in der Slideshow ist
-  if (!slideshow.contains(activeEl)) return;
-
-  if (event.key === "ArrowLeft" && activeSlide !== "1") {
-    event.preventDefault();
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowLeft" && activeSlide !== "1") {
+    showSlide._shouldFocus = true;
     showSlide(parseInt(activeSlide) - 1);
   }
-
-  if (event.key === "ArrowRight" && activeSlide !== "4") {
-    event.preventDefault();
+  if (e.key === "ArrowRight" && activeSlide !== "4") {
+    showSlide._shouldFocus = true;
     showSlide(parseInt(activeSlide) + 1);
   }
 });
