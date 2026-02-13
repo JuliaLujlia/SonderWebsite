@@ -228,11 +228,16 @@ p {
   justify-content: center;
   height: auto;
   z-index: 1;
-  min-height: 100dvh;
+  min-height: 0dvh;
 }
 
 .wrapper {
-  flex-direction: column;
+  position: relative; /* wichtig für Autoplay-Overlay */
+  display: grid;
+  grid-template-rows: 1fr auto; /* Cards nehmen Platz, Slider unten */
+  grid-template-areas:
+    "card"
+    "slider";
   width: 90%;
   height: auto;
   background-color: var(--secondary-color);
@@ -240,6 +245,7 @@ p {
   box-shadow: 10px 0 50px var(--secondary-color);
 }
 .card {
+  grid-area: card;
   display: flex;
   position: relative;
   width: 100%;
@@ -395,11 +401,11 @@ p {
 }
 
 .slider {
-  display: flex;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-  height: 10%;
+  grid-area: slider;
+  justify-self: center; /* mittig */
+  align-self: end; /* unten */
+  margin: 1rem 0 1.25rem; /* bisschen Abstand nach unten */
+  height: auto;
 }
 
 .slider .slide {
@@ -481,13 +487,18 @@ p {
 }
 
 .autoplay-btn {
-  justify-content: center;
-  align-items: center;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 50;
+
+  display: flex;
   gap: 10px;
-  height: 10%;
+  align-items: center;
+  justify-content: center;
+
+  height: auto; /* statt 10% */
   width: auto;
-  position: relative;
-  z-index: 25;
 }
 .autoplay {
   position: relative;
@@ -502,8 +513,8 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 15px;
-  left: 15px;
+  top: auto;
+  left: auto;
 }
 
 .autoplay-start,
