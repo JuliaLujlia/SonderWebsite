@@ -4,26 +4,21 @@
 :root {
   /* ===== NAVBAR VARIABLEN ===== */
   /* Base */
-  --nav-bg-1: #0f162c;
-  --nav-bg-2: #20183e;
-  --nav-border: rgba(64, 224, 255, 0.35);
+  --nav-bg-1: #142b3f;
+  --nav-bg-2: #3f3f27; /* Farbe mit besserem Kontrast zu Text */
+  --nav-border: #142b3f;
 
   /* Neon */
   --neon: #2de2ff;
-  --tungsten: #ffd36a;
-  --ember: #ff4d3d;
-
-  /* Text */
-  --text: rgba(255, 255, 255, 0.92);
-  --text-muted: rgba(255, 255, 255, 0.72);
 
   /* Focus */
   --focus: #2de2ff;
 
   /* ===== MAKINGOF VARIABLEN ===== */
-  --primary-color: #ffd36a;
-  --secondary-color: #0f1a1995;
+  --accent-color: #f3c813; /*tungsten*/
+  --background-color: #222928;
   --text-color: #f8f9fa;
+  --box-shadow: #b1bbbd; /* silver*/
 
   /* Heading Sizes */
   --heading1: 34px;
