@@ -38,7 +38,7 @@ h1 {
   font-family: "Lexend", sans-serif;
   font-weight: 700;
   font-optical-sizing: auto;
-  color: var(--primary-color);
+  color: var(--text-color);
   text-align: center;
   margin: 10px 0;
 }
@@ -60,8 +60,31 @@ p {
   margin: 0px;
 }
 
+.hero {
+  padding: 40px 0 18px;
+  width: calc(90% + 1rem);
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
+.hero::after {
+  content: "";
+  display: block;
+  margin-top: 18px;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 211, 106, 0),
+    rgba(255, 211, 106, 0.85),
+    rgba(45, 226, 255, 0.55),
+    rgba(255, 211, 106, 0)
+  );
+  opacity: 0.8;
+}
+
 .body_makingOf {
-  background-image: url("../img/background_makingOf.jpg");
+  background-image: url("../img/Sonder2.png");
   background-size: cover; /* Make the image cover the entire element */
   background-repeat: repeat; /* Prevent tiling */
   background-position: center; /* Center the image */
@@ -73,7 +96,7 @@ p {
   padding: 0px;
   width: 150px;
   text-align: center;
-  background: var(--secondary-color);
+  background: var(--background-color);
   color: var(--text-color);
   text-decoration: none;
   border-radius: 8px;
@@ -109,13 +132,18 @@ p {
 
 /* Video Style Making of */
 .video_container {
-  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
+  width: 90%;
   min-height: 0;
-  max-height: none;
   justify-content: center;
+  background-color: var(--background-color);
+  border-radius: 25px;
+  box-shadow: 10px 0 50px var(--shadow);
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .video_wrapper {
@@ -134,7 +162,7 @@ p {
   height: 100%;
   border: none;
   border-radius: 18px;
-  box-shadow: 10px 0 50px var(--secondary-color);
+  box-shadow: 10px 0 50px var(--background-color);
 }
 
 .video_container p {
@@ -142,6 +170,9 @@ p {
   margin-top: 0.5rem;
 }
 
+#making_extended {
+  color: var(--focus);
+}
 .dropdown,
 .dropup {
   background: transparent;
@@ -183,11 +214,13 @@ p {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 /* Text alternative content */
 .textalternative {
-  background-color: var(--secondary-color);
+  background-color: var(--background-color);
   border-radius: 8px;
   padding: 20px;
   margin-top: 15px;
@@ -239,9 +272,9 @@ p {
     "slider";
   width: 90%;
   height: auto;
-  background-color: var(--secondary-color);
+  background-color: var(--background-color);
   border-radius: 25px;
-  box-shadow: 10px 0 50px var(--secondary-color);
+  box-shadow: 10px 0 50px var(--shadow);
 }
 .card {
   grid-area: card;
@@ -423,7 +456,7 @@ p {
   left: 0;
   height: 100%;
   width: -100%;
-  background: var(--primary-color);
+  background: var(--accent-color);
   border-radius: 10px;
   transform: scaleX(0);
   transition: transform 0.6s;
@@ -445,7 +478,7 @@ p {
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--primary-color);
+  background: var(--accent-color);
   border-radius: 5px;
   transform: scaleX(0);
   transform-origin: left;
@@ -454,6 +487,12 @@ p {
 
 .slide-btn.is-active::before {
   transform: scaleX(1);
+
+  /* TODO eines wählen */
+  outline: 3px solid var(--accent-color);
+  outline-offset: 3px;
+
+  content: "▶";
 }
 
 .arrow {
@@ -468,7 +507,8 @@ p {
 }
 
 .arrow:hover i {
-  color: var(--primary-color);
+  color: var(--accent-color);
+  font-size: 28px;
 }
 
 .arrow i,
@@ -599,8 +639,6 @@ p {
 
 @media (min-width: 1200px) {
   .video_container {
-    flex: 1;
-    max-height: 100dvh;
     max-width: 100dvw;
     justify-content: center;
     align-items: center;
