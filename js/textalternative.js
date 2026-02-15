@@ -24,7 +24,6 @@ function showTextAlternative(dropdownBtn) {
   dropupBtn?.setAttribute("aria-expanded", "true");
 }
 
-
 function hideTextAlternative(dropupBtn) {
   text.forEach((txt) => txt.classList.add("is-hidden"));
   buttons_dropdown.forEach((btn) => btn.classList.remove("is-hidden"));
