@@ -139,7 +139,7 @@ p {
   min-height: 0;
   justify-content: center;
   background-color: var(--background-color);
-  border-radius: 25px;
+  border-radius: var(--border-radius);
   box-shadow: 10px 0 50px var(--shadow);
   margin-top: 20px;
   margin-left: auto;
