@@ -49,7 +49,8 @@ h2 {
   color: var(--text-color);
   text-align: center;
 }
-p {
+p,
+q {
   font-size: var(--text);
   font-family: "Lexend", sans-serif;
   font-weight: 300;
@@ -224,7 +225,8 @@ p {
 }
 
 .textalternative h2,
-.textalternative h3 {
+.textalternative h3,
+.textalternative h4 {
   margin-top: 15px;
   margin-bottom: 10px;
   color: var(--text-color);
@@ -234,8 +236,17 @@ p {
   font-size: var(--heading3);
 }
 
-.textalternative p {
+.textalternative h4 {
+  font-size: var(--heading4);
+}
+
+.textalternative p,
+q {
   text-align: left;
+}
+
+.textalternative q {
+  padding-left: 10px;
 }
 
 .textalternative ul,
@@ -326,7 +337,7 @@ p {
   max-height: 60vh;
   min-height: 20vh;
   overflow: hidden;
-  display: inline-block;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 5px;
@@ -335,7 +346,7 @@ p {
 .img_card img {
   max-height: 100%;
   max-width: 100%;
-  aspect-ratio: 16 / 9;
+
   object-fit: contain;
   opacity: 0;
   transition: opacity 0.6s ease-in-out 0s;
@@ -343,55 +354,140 @@ p {
   display: block;
   box-shadow: 0 0 0 1px var(--glow);
 }
+
+.img_1,
 .collage {
+  aspect-ratio: 1/1;
+}
+
+.img_2,
+.img_3,
+.img_4,
+.collage3 {
+  aspect-ratio: 16 / 9;
+}
+
+/* Hotspot-Overlay standardmäßig aus */
+.inner_part .collage,
+.inner_part .collage3 {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* …nur im aktiven Slide an */
+.inner_part.is-active .collage,
+.inner_part.is-active .collage3 {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.collage,
+.collage3 {
   position: absolute;
   inset: 0;
   z-index: 2;
   background: transparent;
   pointer-events: auto;
-  outline: none;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
 }
 
-.collage > div {
+.collage > div,
+.collage3 > div {
   position: absolute;
   display: block;
   pointer-events: auto;
   background: transparent;
-  outline: none;
 }
 
-.collage > div:focus-visible {
+.collage > div:focus-visible,
+.collage3 > div:focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 2px;
   box-shadow: 0 0 0 4px rgba(45, 226, 255, 0.25);
 }
 
-.collage > div:focus-visible::after {
+.collage > div:focus-visible::after,
+.collage3 > div:focus-visible::after {
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(45, 226, 255, 0.15);
   pointer-events: none;
 }
-
-.pic-1 {
+.pic1-1 {
   left: 0%;
-  width: 25%;
+  width: 33%;
+  height: 33%;
+}
+.pic1-2 {
+  left: 33%;
+  top: 0%;
+  width: 33%;
+  height: 33%;
+}
+.pic1-3 {
+  left: 66%;
+  top: 0%;
+  width: 33%;
+  height: 33%;
+}
+.pic1-4 {
+  left: 0%;
+  top: 33%;
+  width: 33%;
+  height: 33%;
+}
+.pic1-5 {
+  left: 33%;
+  top: 33%;
+  width: 33%;
+  height: 33%;
+}
+.pic1-6 {
+  left: 66%;
+  top: 33%;
+  width: 33%;
+  height: 33%;
+}
+.pic1-7 {
+  left: 0%;
+  top: 66%;
+  width: 33%;
+  height: 33%;
+}
+.pic1-8 {
+  left: 33%;
+  top: 66%;
+  width: 33%;
+  height: 33%;
+}
+.pic1-9 {
+  left: 66%;
+  top: 66%;
+  width: 33%;
+  height: 33%;
+}
+
+.pic3-1 {
+  left: 0%;
+  width: 28%;
   height: 100%;
 }
-.pic-2 {
-  left: 25%;
+.pic3-2 {
+  left: 28%;
   top: 0%;
-  width: 40%;
+  width: 37%;
   height: 50%;
 }
-.pic-3 {
-  left: 25%;
+.pic3-3 {
+  left: 28%;
   top: 50%;
-  width: 40%;
+  width: 37%;
   height: 50%;
 }
-.pic-4 {
+.pic3-4 {
   left: 65%;
   top: 0%;
   width: 35%;

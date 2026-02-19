@@ -4,7 +4,7 @@ const buttons_next = document.querySelectorAll(".arrow-next");
 const slides = document.querySelectorAll(".inner_part");
 const autoplay_start = document.querySelectorAll(".autoplay-start");
 const autoplay_stop = document.querySelectorAll(".autoplay-stop");
-const collageHotspots = document.querySelectorAll(".collage > div");
+const collageHotspots = document.querySelectorAll(".hotspot");
 
 let activeSlide = "1"; // Als String, wie data-slide
 let autoPlayInterval;
@@ -69,11 +69,12 @@ function showSlide(index) {
     }
   });
 
-  // Collage-Hotspots nur auf Slide 3 fokussierbar
-  const isSlide3Active = activeSlide === "3";
-
+  // Hotspots: nur im aktiven Slide sichtbar + tabbbar
   collageHotspots.forEach((hotspot) => {
-    if (isSlide3Active) {
+    const slideEl = hotspot.closest(".inner_part");
+    const isInActiveSlide = slideEl && slideEl.dataset.slide === activeSlide;
+
+    if (isInActiveSlide) {
       hotspot.setAttribute("tabindex", "0");
       hotspot.removeAttribute("aria-hidden");
     } else {
