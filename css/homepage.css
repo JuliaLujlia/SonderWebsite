@@ -35,7 +35,17 @@ h2 {
   text-align: center;
 }
 
-p {
+h4 {
+  font-size: var(--heading4);
+  font-family: "Lexend", sans-serif;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  color: var(--text-color);
+  text-align: left;
+  margin-top: 24px;
+}
+
+p, q {
   font-size: var(--text);
   font-family: "Lexend", sans-serif;
   font-weight: 300;
