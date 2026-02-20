@@ -17,6 +17,7 @@ function prefersReducedMotion() {
 }
 
 function showSlide(index) {
+  console.log(showSlide._shouldFocus);
   console.log(index);
   activeSlide = String(index); // In String konvertieren
 
@@ -30,7 +31,9 @@ function showSlide(index) {
   buttons.forEach((btn) => btn.classList.remove("is-active"));
 
   slides.forEach((slide) => {
-    slide.classList.toggle("is-active", slide.dataset.slide == activeSlide);
+    const isActive = slide.dataset.slide === activeSlide;
+
+    slide.classList.toggle("is-active", isActive);
   });
 
   buttons.forEach((btn) => {
@@ -82,6 +85,17 @@ function showSlide(index) {
       hotspot.setAttribute("aria-hidden", "true");
     }
   });
+
+  if (showSlide._shouldFocus) {
+    const activeSlideEl = document.querySelector(`.inner_part[data-slide="${activeSlide}"]`);
+
+    const focusTarget = activeSlideEl.querySelector("img") || activeSlideEl;
+
+    focusTarget.setAttribute("tabindex", "-1");
+    focusTarget.focus();
+
+    showSlide._shouldFocus = false;
+  }
 }
 
 buttons.forEach((btn) => {
@@ -120,6 +134,7 @@ document.addEventListener("keydown", (e) => {
 });
 
 function autoPlay() {
+  showSlide._shouldFocus = false;
   showSlide(parseInt(activeSlide) + 1);
 }
 
@@ -173,6 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 autoplay_start.forEach((btn) => {
   btn.addEventListener("click", () => {
+    showSlide._shouldFocus = false;
     isAutoplayEnabled = true;
 
     autoPlayInterval = setInterval(autoPlay, SLIDE_INTERVAL);
