@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonder | Act 1 - The Routine</title>
+    
+    <link rel="stylesheet" href="variables.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="act_style.css"> 
+    
+    <script src="https://kit.fontawesome.com/579dd5238a.js" crossorigin="anonymous"></script>
+</head>
+<body class="show-a11y" style="background-color: var(--nav-bg-1); color: var(--text-color);">
+
+    <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navigation">
+        <div class="container-fluid">
+            <div class="logo-icon" aria-hidden="true">
+                <svg width="44" height="46">...</svg> 
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="custom-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="homepage.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="sonder.html">Sonder</a></li>
+                    <li class="nav-item"><a class="nav-link" href="makingof.html">Making Of</a></li>
+                    
+                    <li class="nav-item ms-lg-3">
+                        <button id="a11y-toggle" class="btn-a11y-neon" title="Barrierefreie Ansicht">
+                            <i class="fa-solid fa-universal-access"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="overlay" aria-hidden="true"></div>
+
+    <main class="act-main-container" id="main-content">
+        <div class="act-grid-layout">
+            
+            <div class="act-sidebar">
+                <h2 class="vertical-title">ACT 1 — THE ROUTINE</h2>
+                <div class="poster-wrapper">
+                    <img src="assets/Philipp.png" alt="Atmosphärisches Bild Act 1" class="sidebar-img">
+                </div>
+            </div>
+
+            <div class="act-content">
+                <div class="video-window">
+                    <iframe src="https://www.youtube.com/embed/AkoML0_FiV4" frameborder="0" allowfullscreen></iframe>
+                </div>
+
+                <div class="text-info mt-5">
+                    <h3 style="color: var(--neon, #2de2ff);">Everyday looks the same</h3>
+                    <p>
+                        In Act 1 begleiten wir den Protagonisten durch seine tägliche Routine. 
+                        Die kühlen Farben unterstreichen das Gefühl der Isolation.
+                    </p>
+                    <div class="act-navigation">
+                        <a href="act2.html" class="nav-arrow">ACT 2 →</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="js/a11y.js"></script>
+    <script src="sonder.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

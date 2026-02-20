@@ -4,31 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SONDER | Startseite</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/variables.css">
+    
+    <script src="https://kit.fontawesome.com/579dd5238a.js" crossorigin="anonymous"></script>
 </head>
-
-    <body>
-        <div class="overlay"></div>
+<body class="show-a11y">
     
-        <div class="collage-container" aria-hidden="true">
-            <div class="item pic1"></div>
-            <div class="item pic2"></div>
-            <div class="item pic3"></div>
-            <div class="item pic4"></div>
-            <div class="item pic5"></div>
-            <div class="item pic6"></div>
-            <div class="item pic7"></div>
-            <div class="item pic8"></div>
-            <div class="item pic9"></div>
-            <div class="item pic10"></div>
-            <div class="item pic11"></div>
+    <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
+
+    <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navigation">
+        <div class="container-fluid">
+            <div class="logo-icon" aria-hidden="true">
+                <svg width="44" height="46" viewBox="0 0 1260 1420"><path d="..." fill="#2de2ff"/></svg> 
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="custom-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="homapage.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="sonder.html">Sonder</a></li>
+                    <li class="nav-item"><a class="nav-link" href="makingof.html">Making Of</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button id="a11y-toggle" class="btn-a11y-neon" title="Barrierefreie Ansicht">
+                            <i class="fa-solid fa-universal-access"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </div>
-    
-        <h1 class="center-title" aria-label="Sonder">
-            <span aria-hidden="true">SON<br>DER</span>
+    </nav>
+
+    <div class="overlay" aria-hidden="true"></div>
+
+    <main id="main-content">
+        <h1 class="center-title">
+            <span>SONDER</span>
         </h1>
-        
-    </body>
 
+        <nav class="collage-container" aria-label="Sonder: Visual Act Selection">
+            <a href="act1.html" class="item pic1">
+                <span class="a11y-text">1. ACT: THE ROUTINE</span>
+            </a>
+            <a href="act2.html" class="item pic2">
+                <span class="a11y-text">2. ACT: THE CHASE</span>
+            </a>
+            <a href="act3.html" class="item pic3">
+                <span class="a11y-text">3. ACT: THE AWAKENING</span>
+            </a>
 
+            <a href="act1.html" class="item pic4" aria-label="Enter Act 1 via the graffitied subway platform and lone passenger"></a>
+            <a href="act1.html" class="item pic5" aria-label="Enter Act 1 via the glowing spherical chandeliers in the station"></a>
+            <a href="act1.html" class="item pic6" aria-label="Enter Act 1 via the symmetrical view of the rising escalators"></a>
+            <a href="act1.html" class="item pic7" aria-label="Enter Act 1 via a close-up of professional sound recording equipment"></a>
+            <a href="act1.html" class="item pic8" aria-label="Enter Act 1 via a filmmaker capturing the descent into the underground"></a>
+            <a href="act1.html" class="item pic9" aria-label="Enter Act 1 via a close-up of a camera operator's focused hands"></a>
+            <a href="act1.html" class="item pic10" aria-label="Enter Act 1 via the steep perspective looking down into the station"></a>
+            <a href="act1.html" class="item pic11" aria-label="Enter Act 1 via a filmmaker reviewing raw footage on a monitor"></a>
+        </nav>
+    </main>
+
+    <script src="js/a11y.js"></script>
+    <script src="sonder.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
