@@ -16,7 +16,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navigation"> <!-- ohne Label wird es nicht gesagt, mit label zweimal gesagt -->
+    <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navigation">
         <div class="container-fluid">
             <div class="logo-icon" aria-hidden="true">
                 <svg
@@ -43,7 +43,7 @@
                     </g>
                 </svg>
             </div>
-            <a class="skip-link" href="#main-content" id="skipToMainContent" aria-label="skip navbar">skip navbar</a> <!-- Skip link to skip the navbar and go to the main section -->
+            <a class="skip-link" href="#main-content" id="skipToMainContent" aria-label="Skip to main content">skip navbar</a> <!-- Skip link to skip the navbar and go to the main section -->
 
             <button
             class="navbar-toggler"
@@ -74,13 +74,12 @@
 
         </div>
     </nav>
-    <!-- Navigation skip links + zum Video oder Content-->
 
     <!-- Main Content -->
     <main id="main-content" class="main-content">
         <div class="page-wrap">
             <!-- Hero Section -->
-            <section class="hero" id="home" aria-labelledby="main-title">
+            <section class="hero" id="home">
             <div class="hero-content">
                 <h1 id="main-title">Too late to notice</h1>
             </div>
@@ -88,15 +87,15 @@
 
 
             <!-- Video Section -->
-            <section class="video-section" aria-labelledby="video-title">
+            <section class="video-section">
                 <h2 class="video-label" id="video-title">Shortfilm - Sonder</h2>
-                <a class="skip-link" href="#intro-section" id="skipToIntroSection" aria-label="skip shortfilm">skip video</a> <!-- Skip link to skip the video and go to the next section -->
+                <a class="skip-link" href="#intro-section" id="skipToIntroSection" aria-label="Skip to Sonder Description">skip video</a> <!-- Skip link to skip the video and go to the next section -->
                 <div id="skipvideo-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 
-                <div class="video-container" id="video-embed" role="region" aria-label="YouTube Video">
+                <div class="video-container" id="video-embed">
                     <iframe
-                    src="https://www.youtube.com/watch?v=HIiqsKJSv4w"
-                    title="YouTube video player"
+                    src="https://www.youtube.com/embed/HIiqsKJSv4w"
+                    title="Short film: Too late to notice"
                     frameborder="0"
                     allow="autoplay, encrypted-media"
                     referrerpolicy="strict-origin-when-cross-origin"
@@ -409,7 +408,7 @@
 
 
             <!-- Intro Section -->
-            <section id="intro-section" class="intro-section" aria-labelledby="intro-title" tabindex="-1">
+            <section id="intro-section" class="intro-section" tabindex="-1">
             <h2 id="intro-title">Sonder</h2>
             <div class="intro-text">
                 <p> 
