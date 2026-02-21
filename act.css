@@ -26,23 +26,6 @@
    /* ===================================================== 
       2. BARRIEREFREIHEIT
       ===================================================== */
-   .skip-link {
-     position: absolute;
-     top: -10rem;
-     left: 1rem;
-     background: var(--neon);
-     color: var(--dark-bg);
-     padding: 1rem 1.5rem;
-     z-index: 10000;
-     text-decoration: none;
-     font-weight: 800;
-     border-radius: 4px;
-     transition: top 0.3s ease;
-   }
-   
-   .skip-link:focus {
-     top: 1rem;
-   }
    
    *:focus-visible {
      outline: 3px solid var(--neon);
