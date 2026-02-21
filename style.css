@@ -69,21 +69,45 @@ body {
 /* ===================================================== 
       2. COLLAGE (sonder.html)
       ===================================================== */
+/* Bilder (immer aktiv, egal welche Bildschirmgröße) */
+.pic1 {
+  background-image: url("assets/PHOTO-01.jpg");
+}
+.pic2 {
+  background-image: url("assets/PHOTO-02.jpg");
+}
+.pic3 {
+  background-image: url("assets/PHOTO-03.jpg");
+}
+.pic4 {
+  background-image: url("assets/PHOTO-04.jpg");
+}
+.pic5 {
+  background-image: url("assets/PHOTO-05.jpg");
+}
+.pic6 {
+  background-image: url("assets/PHOTO-06.jpg");
+}
+.pic7 {
+  background-image: url("assets/PHOTO-07.jpg");
+}
+.pic8 {
+  background-image: url("assets/PHOTO-08.jpg");
+}
+.pic9 {
+  background-image: url("assets/PHOTO-09.jpg");
+}
+.pic10 {
+  background-image: url("assets/PHOTO-10.jpg");
+}
+.pic11 {
+  background-image: url("assets/PHOTO-11.jpg");
+}
 .collage-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   padding: 80px 10px 20px;
-}
-
-@media (min-width: 1024px) {
-  .collage-container {
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    height: 100vh;
-    padding: 0;
-    gap: 0;
-  }
 }
 
 /* ===== Base Item ===== */
@@ -152,51 +176,20 @@ body {
   opacity: 1;
   transform: translate(-50%, -55%);
 }
+.collage-container {
+  display: grid;
+  gap: 12px;
+  padding: 80px 12px 24px;
 
-/* Grid Positionen & Bilder */
-.pic1 {
-  grid-area: 1/1/3/3;
-  background-image: url("assets/PHOTO-01.jpg");
+  /* Mobile: automatisch passende Kacheln */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 180px;
 }
-.pic2 {
-  grid-area: 1/3/2/5;
-  background-image: url("assets/PHOTO-02.jpg");
-}
-.pic3 {
-  grid-area: 1/5/3/7;
-  background-image: url("assets/PHOTO-03.jpg");
-}
-.pic4 {
-  grid-area: 1/7/4/9;
-  background-image: url("assets/PHOTO-04.jpg");
-}
-.pic5 {
-  grid-area: 2/3/4/5;
-  background-image: url("assets/PHOTO-05.jpg");
-}
-.pic6 {
-  grid-area: 3/1/5/3;
-  background-image: url("assets/PHOTO-06.jpg");
-}
-.pic7 {
-  grid-area: 3/5/4/7;
-  background-image: url("assets/PHOTO-07.jpg");
-}
-.pic8 {
-  grid-area: 4/3/7/6;
-  background-image: url("assets/PHOTO-08.jpg");
-}
-.pic9 {
-  grid-area: 4/6/6/9;
-  background-image: url("assets/PHOTO-09.jpg");
-}
-.pic10 {
-  grid-area: 5/1/7/3;
-  background-image: url("assets/PHOTO-10.jpg");
-}
-.pic11 {
-  grid-area: 6/6/7/9;
-  background-image: url("assets/PHOTO-11.jpg");
+
+/* Bilder wirken schöner im Grid */
+.item {
+  min-height: auto; /* wichtig: grid-auto-rows steuert Höhe */
+  border-radius: 10px; /* optional */
 }
 
 .center-title {
@@ -273,4 +266,66 @@ body.accessible-mode .a11y-text {
   color: #fff;
   padding: 10px;
   text-align: center;
+}
+
+/* Etwas größer: 3 Spalten */
+@media (min-width: 640px) {
+  .collage-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 200px;
+  }
+}
+
+/* Tablet: 4 Spalten */
+@media (min-width: 900px) {
+  .collage-container {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: 220px;
+  }
+}
+
+/* Grid Positionen & Bilder */
+@media (min-width: 1024px) {
+  .collage-container {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    height: 100vh;
+    padding: 0;
+    gap: 0;
+  }
+
+  /* Nur Desktop nutzt die festen Areas */
+  .pic1 {
+    grid-area: 1/1/3/3;
+  }
+  .pic2 {
+    grid-area: 1/3/2/5;
+  }
+  .pic3 {
+    grid-area: 1/5/3/7;
+  }
+  .pic4 {
+    grid-area: 1/7/4/9;
+  }
+  .pic5 {
+    grid-area: 2/3/4/5;
+  }
+  .pic6 {
+    grid-area: 3/1/5/3;
+  }
+  .pic7 {
+    grid-area: 3/5/4/7;
+  }
+  .pic8 {
+    grid-area: 4/3/7/6;
+  }
+  .pic9 {
+    grid-area: 4/6/6/9;
+  }
+  .pic10 {
+    grid-area: 5/1/7/3;
+  }
+  .pic11 {
+    grid-area: 6/6/7/9;
+  }
 }
