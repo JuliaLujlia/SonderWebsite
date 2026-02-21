@@ -25,12 +25,23 @@ function showTextAlternative(dropdownBtn) {
 }
 
 function hideTextAlternative(dropupBtn) {
-  text.forEach((txt) => txt.classList.add("is-hidden"));
-  buttons_dropdown.forEach((btn) => btn.classList.remove("is-hidden"));
-  dropupBtn.classList.add("is-hidden");
+  const container = dropupBtn.closest(".container_textalternative");
+  const dropdownBtn = container?.querySelector(".dropdown");
+  const panel = container?.querySelector(".textalternative");
 
-  buttons_dropdown.forEach((btn) => btn.setAttribute("aria-expanded", "false"));
+  // Panel + Dropup im aktuellen Container schließen
+  panel?.classList.add("is-hidden");
+  dropupBtn.classList.add("is-hidden");
   dropupBtn.setAttribute("aria-expanded", "false");
+
+  // Dropdown im aktuellen Container wieder zeigen
+  dropdownBtn?.classList.remove("is-hidden");
+  dropdownBtn?.setAttribute("aria-expanded", "false");
+
+  // Fokus zurück auf das passende Dropdown (nachdem es sichtbar ist)
+  if (dropdownBtn) {
+    requestAnimationFrame(() => dropdownBtn.focus());
+  }
 }
 
 function handleKeyActivation(e) {

@@ -1,6 +1,12 @@
 const videolink = document.getElementById("skipToSlideshow");
 const status_skipvideo = document.getElementById("skipvideo-status");
 
+const videolinkHome = document.getElementById("skipToIntroSection");
+const status_skipvideoHome = document.getElementById("skipvideo-home-status");
+
+const linkNav = document.getElementById("skipToMainContent");
+const status_skipNav = document.getElementById("skipnav-status");
+
 const btn_dropdown = document.getElementById("ShowText");
 const status_expandedText = document.getElementById("textexpanded-status");
 
@@ -37,6 +43,26 @@ if (videolink && status_skipvideo) {
     status_skipvideo.textContent = "";
     setTimeout(() => {
       status_skipvideo.textContent = "skipped to slideshow";
+    }, 50);
+  });
+}
+
+if (videolinkHome && status_skipvideoHome) {
+  videolinkHome.addEventListener("click", () => {
+    // leeren, damit wiederholt vorgelesen wird
+    status_skipvideoHome.textContent = "";
+    setTimeout(() => {
+      status_skipvideoHome.textContent = "skipped to intro section";
+    }, 50);
+  });
+}
+
+if (linkNav && status_skipNav) {
+  linkNav.addEventListener("click", () => {
+    // leeren, damit wiederholt vorgelesen wird
+    status_skipNav.textContent = "";
+    setTimeout(() => {
+      status_skipNav.textContent = "skipped to main content";
     }, 50);
   });
 }
