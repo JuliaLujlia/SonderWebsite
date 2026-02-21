@@ -35,10 +35,20 @@ h2 {
   text-align: center;
 }
 
+h3 {
+  font-size: var(--heading3);
+  font-family: "Lexend", sans-serif;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  color: var(--text-color);
+  text-align: left;
+  margin-top: 24px;
+}
+
 h4 {
   font-size: var(--heading4);
   font-family: "Lexend", sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   font-optical-sizing: auto;
   color: var(--text-color);
   text-align: left;
@@ -59,11 +69,15 @@ q {
 a {
   color: var(--focus);
   text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 }
 
 a:hover {
   color: var(--accent-color);
   text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 .hero {
@@ -153,10 +167,6 @@ a:hover {
   margin-top: 15px;
   margin-bottom: 10px;
   color: var(--text-color);
-}
-
-.textalternative h3 {
-  font-size: var(--heading3);
 }
 
 .textalternative p {
