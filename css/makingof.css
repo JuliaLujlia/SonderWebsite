@@ -559,7 +559,7 @@ q {
 .slide-btn {
   position: relative;
   height: 24px;
-  width: 50px;
+  width: 40px;
   background: var(--text-color);
   border-radius: 5px;
   border: none;
