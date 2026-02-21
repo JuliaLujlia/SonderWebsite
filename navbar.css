@@ -1,143 +1,148 @@
-:root{
-    /* Base */
-    --nav-bg-1: #0f162c;
-    --nav-bg-2: #20183e;
-    --nav-border: rgba(64, 224, 255, 0.35);
-  
-    /* Neon */
-    --neon: #2de2ff;
-    --tungsten: #ffd36a;
-    --ember: #ff4d3d;
-  
-    /* Text */
-    --text: rgba(255,255,255,0.92);
-    --text-muted: rgba(255,255,255,0.72);
-  
-    /* Focus */
-    --focus: #2de2ff;
-  }
-  
-  /* Navbar container */
-  .navbar{
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    margin: 0;
-    z-index: 9999;
-  
-    /* Gradient */
-    background:
-      radial-gradient(1200px 120px at 20% 0%, rgba(45,226,255,0.18), transparent 55%),
-      radial-gradient(900px 140px at 80% 20%, rgba(255, 77, 61, 0.14), transparent 60%),
-      linear-gradient(90deg, var(--nav-bg-1), var(--nav-bg-2));
-  
-    border-bottom: 1px solid rgba(255,255,255,0.10);
-    box-shadow:
-      0 10px 24px rgba(0,0,0,0.45),
-      inset 0 1px 0 rgba(255,255,255,0.06);
-  }
-  
-  /* Logo */
-  .logo-icon{
-    /* Neon glow */
-    filter: drop-shadow(0 0 10px rgba(45,226,255,0.35));
-  }
-  
-  /* Nav text */
-  .navbar-nav{
-    font-family: "Lexend Deca", sans-serif;
-    font-weight: 600;
-    font-size: 1.1rem;
-    letter-spacing: 0.2px;
-  }
-  
-  .navbar-nav .nav-link{
-    color: var(--text) !important;
-    text-decoration: none;
-    padding: 10px 12px;
-    border-radius: 10px;
-  }
-  
-  /* Hover */
-  .navbar-nav .nav-link:hover{
-    background-color: rgba(255,255,255,0.06);
-    transform: translateY(-1px);
-  }
-  
-  /* Active */
-  .navbar-nav .nav-link.active{
-    color: var(--tungsten) !important;
-    box-shadow: inset 0 -2px 0 rgba(255,211,106,0.85);
-  }
-  
-  /* Focus */
-  .navbar-nav .nav-link:focus-visible,
-  .navbar-toggler:focus-visible{
-    outline: 3px solid var(--focus);
-    outline-offset: 3px;
-    box-shadow: 0 0 0 4px rgba(45,226,255,0.25);
-  }
-  
-  
-  /* Hamburger (Button) */
-  .navbar .navbar-toggler{
-    border: 1px solid rgba(45,226,255,0.55);
-    border-radius: 14px;
-    padding: 0.75em 0.55em;
-    background: rgba(0,0,0,0.15);
-    box-shadow:
-      0 0 0 1px rgba(255,255,255,0.06) inset,
-      0 10px 18px rgba(0,0,0,0.25);
-  }
-  
-  /* Hamburger icon */
-  .custom-toggler-icon,
-  .custom-toggler-icon::before,
-  .custom-toggler-icon::after{
-    display:block;
-    width:28px;
-    height:3px;
-    background: rgba(255,211,106,0.95); /* tungsten */
-    border-radius: 2px;
-    content:"";
-    position: relative;
-  
-    /* Glow */
-    box-shadow: 0 0 12px rgba(255,211,106,0.25);
-  }
-  
-  .custom-toggler-icon::before{
-    position:absolute;
-    top:-8px;
-    left:0;
-  }
-  .custom-toggler-icon::after{
-    position:absolute;
-    top:8px;
-    left:0;
-  }
+@import url("css/variables.css");
 
-  /* Der Barrierefrei-Button in der Navbar */
-.btn-a11y-neon {
-    background: transparent;
-    border: 1px solid var(--neon);
-    color: var(--neon);
-    border-radius: 50%;
-    width: 38px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1.2rem;
-    box-shadow: 0 0 10px rgba(45, 226, 255, 0.2);
+/* Navbar container */
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0;
+  z-index: 9999;
+
+  /* Gradient */
+  background:
+    radial-gradient(1200px 120px at 20% 0%, var(--nav-bg-1), transparent 55%),
+    radial-gradient(900px 140px at 80% 20%, var(--nav-bg-2), transparent 60%),
+    linear-gradient(90deg, var(--nav-bg-1), var(--nav-bg-2));
+
+  border-bottom: 1px solid var(--nav-border);
 }
 
-.btn-a11y-neon:hover {
-    background: var(--neon);
-    color: #000;
-    box-shadow: 0 0 20px var(--neon);
+/* Logo */
+.logo-icon {
+  /* Neon glow */
+  filter: drop-shadow(0 0 14px var(--glow));
+}
+
+/* Nav text */
+.navbar-nav {
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.2px;
+}
+
+.navbar-nav .nav-link {
+  color: var(--text-color) !important;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+/* Hover */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus-visible {
+  background-color: var(--nav-bg-1);
+  outline: 2px solid var(--focus);
+  transform: translateY(-1px);
+}
+
+/* Active */
+.navbar-nav .nav-link.active {
+  color: var(--accent-color) !important;
+  box-shadow: inset 0 -2px 0 var(--accent-color);
+}
+
+/* Focus */
+.navbar-nav .nav-link:focus-visible,
+.navbar-toggler:focus-visible {
+  outline: 3px solid var(--focus);
+  box-shadow: 0 0 0 4px var(--glow);
+}
+
+/* Hamburger (Button) */
+.navbar .navbar-toggler {
+  border: 1px solid var(--neon);
+  border-radius: 14px;
+  padding: 0.75em 0.55em;
+  background: var(--nav-bg-1);
+  box-shadow: 0 5px 10px var(--glow);
+}
+
+/* Hamburger icon */
+.custom-toggler-icon,
+.custom-toggler-icon::before,
+.custom-toggler-icon::after {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: var(--accent-color);
+  border-radius: 2px;
+  content: "";
+  position: relative;
+}
+
+.custom-toggler-icon::before {
+  position: absolute;
+  top: -8px;
+  left: 0;
+}
+.custom-toggler-icon::after {
+  position: absolute;
+  top: 8px;
+  left: 0;
+}
+
+/* Der Barrierefrei-Button in der Navbar */
+
+/* A11y Button – Icon blau, Hintergrund transparent */
+.is-hidden {
+  display: none !important;
+}
+.btn-a11y-neon {
+  position: relative;
+  background: transparent;
+  border: 1px solid var(--neon);
+  color: var(--neon); /* Icon-Farbe */
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+  box-shadow: 0 0 6px rgba(45, 226, 255, 0.25);
+}
+
+/* Icon-Größe */
+.btn-a11y-neon i {
+  font-size: 38px;
+}
+
+/* Hover / Fokus */
+.btn-a11y-neon:hover,
+.btn-a11y-neon:focus-visible {
+  background: transparent; /* bleibt transparent */
+  box-shadow: 0 0 18px var(--accent-color);
+  transform: translateY(-1px);
+  color: var(--accent-color);
+}
+
+/* Aktiv-Zustand (wenn aria-pressed="true") */
+.btn-a11y-neon[aria-pressed="true"] {
+  box-shadow: 0 0 22px var(--neon);
+  border-width: 2px;
+}
+
+.a11y-active-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

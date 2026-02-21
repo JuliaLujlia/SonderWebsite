@@ -1,110 +1,109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Accessibility - Sonderwebsite</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-        
-        nav {
-            background-color: #2c3e50;
-            padding: 0;
-            position: sticky;
-            top: 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            z-index: 100;
-        }
-        
-        nav ul {
-            list-style: none;
-            display: flex;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        nav li {
-            flex: 1;
-        }
-        
-        nav a {
-            display: block;
-            padding: 15px 20px;
-            color: white;
-            text-decoration: none;
-            text-align: center;
-            transition: background-color 0.3s ease;
-        }
-        
-        nav a:hover {
-            background-color: #34495e;
-        }
-        
-        nav a.active {
-            background-color: #3498db;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        
-        video {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            display: block;
-            margin: 30px auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        
-        h2 {
-            color: #555;
-            margin-top: 40px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      nav {
+        background-color: #2c3e50;
+        padding: 0;
+        position: sticky;
+        top: 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      nav li {
+        flex: 1;
+      }
+
+      nav a {
+        display: block;
+        padding: 15px 20px;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+        transition: background-color 0.3s ease;
+      }
+
+      nav a:hover {
+        background-color: #34495e;
+      }
+
+      nav a.active {
+        background-color: #3498db;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      video {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        display: block;
+        margin: 30px auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        color: #555;
+        margin-top: 40px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <nav>
-        <ul>
-            <li><a href="homepage.html" class="active">Homepage</a></li>
-            <li><a href="sonder.html">Sonder</a></li>
-            <li><a href="makeof.html">Make Of</a></li>
-        </ul>
+      <ul>
+        <li><a href="homepage.html" class="active">Homepage</a></li>
+        <li><a href="sonder.html">Sonder</a></li>
+        <li><a href="makeof.html">Make Of</a></li>
+      </ul>
     </nav>
-    
+
     <div class="container">
-        <h1>Willkommen zur Accessibility-Einführung</h1>
-        
-        <video controls>
-            <source src="video/introduction.mp4" type="video/mp4">
-            Ihr Browser unterstützt das Video-Element nicht.
-        </video>
-        
-        <h2>Grundlagen der Barrierefreiheit im Web</h2>
-        <p>
-            Barrierefreiheit (Accessibility) bedeutet, dass Webseiten so gestaltet werden, 
-            dass sie von allen Menschen genutzt werden können - unabhängig von körperlichen 
-            Fähigkeiten oder technischen Möglichkeiten. Das Video zeigt die wichtigsten 
-            Prinzipien für eine zugängliche Website-Gestaltung.
-        </p>
+      <h1>Willkommen zur Accessibility-Einführung</h1>
+
+      <video controls>
+        <source src="video/introduction.mp4" type="video/mp4" />
+        Ihr Browser unterstützt das Video-Element nicht.
+      </video>
+
+      <h2>Grundlagen der Barrierefreiheit im Web</h2>
+      <p>
+        Barrierefreiheit (Accessibility) bedeutet, dass Webseiten so gestaltet werden, dass sie von allen Menschen
+        genutzt werden können - unabhängig von körperlichen Fähigkeiten oder technischen Möglichkeiten. Das Video zeigt
+        die wichtigsten Prinzipien für eine zugängliche Website-Gestaltung.
+      </p>
     </div>
-</body>
+  </body>
 </html>
