@@ -11,6 +11,12 @@ body {
   overflow-x: hidden;
 }
 
+*:focus {
+  /* inner indicator */
+  outline: 3px solid var(--focus);
+  box-shadow: 0 0 0 4px var(--glow);
+}
+
 /* Skip-Link (Unsichtbar bis Tab-Fokus) */
 .skip-link {
   display: block;
@@ -209,8 +215,8 @@ body {
       4. ACCESSIBILITY MODE (A11Y)
       ===================================================== */
 body.accessible-mode {
-  background-color: var(--white) !important;
-  color: #000 !important;
+  background-color: var(--dark-bg) !important;
+  color: var(--text-color) !important;
 }
 
 body.accessible-mode .center-title {
@@ -218,42 +224,79 @@ body.accessible-mode .center-title {
   transform: none !important;
   top: 0;
   left: 0;
-  color: #000 !important;
+  color: var(--text-color) !important;
   mix-blend-mode: normal !important;
   font-size: 4rem;
   text-align: center;
   padding: 40px 0;
 }
 
-body.accessible-mode .item {
-  display: none !important;
-}
-body.accessible-mode .pic1,
-body.accessible-mode .pic2,
-body.accessible-mode .pic3 {
-  display: block !important;
-  width: 90%;
-  max-width: 600px;
-  margin: 20px auto !important;
-  filter: none !important;
-  border: 5px solid #000;
+body.accessible-mode .collage-container {
+  display: grid;
+  gap: 16px;
+  padding: 24px 12px 32px;
+  height: auto; /* wichtig falls vorher 100vh */
 }
 
-body.accessible-mode .vertical-title {
-  writing-mode: horizontal-tb !important;
-  transform: none !important;
-  color: #000 !important;
-  margin-bottom: 20px;
+/* Alle Bilder wieder sichtbar machen */
+body.accessible-mode .item {
+  display: block !important;
+  width: 100%;
+  filter: none !important;
+  border: 2px solid var(--text-color);
+  border-radius: 10px;
+  outline: none;
+}
+
+/* Overlay + Text nur bei Hover abschalten */
+body.accessible-mode .item:hover::before,
+body.accessible-mode .item:hover::after {
+  opacity: 0 !important;
+  content: none !important;
 }
 
 body.accessible-mode .act-grid-layout {
   grid-template-columns: 1fr;
 }
 
-body.accessible-mode .text-info p,
-body.accessible-mode .text-info h2,
-body.accessible-mode .nav-arrow {
-  color: #000 !important;
+/* A11Y: Fokus wieder sichtbar machen (Keyboard) */
+body.accessible-mode .item:focus,
+body.accessible-mode .item:focus-visible {
+  outline: 3px solid var(--focus) !important;
+  box-shadow: 0 0 0 4px var(--glow) !important;
+  outline-offset: 5px !important; /* optional */
+}
+
+/* A11Y: Hover-Fokus NUR für pic1–pic3 */
+body.accessible-mode .pic1:hover,
+body.accessible-mode .pic2:hover,
+body.accessible-mode .pic3:hover {
+  outline: 3px solid var(--focus) !important;
+  box-shadow: 0 0 0 4px var(--glow) !important;
+  outline-offset: 5px !important;
+}
+
+/* A11Y: Overlay/Text nur bei Hover deaktivieren (nicht bei Focus!) */
+body.accessible-mode .item:hover::before,
+body.accessible-mode .item:hover::after {
+  content: none !important;
+  opacity: 0 !important;
+}
+
+/* A11Y: "TO ACT" / Hover-Text komplett deaktivieren */
+body.accessible-mode .item::after {
+  content: none !important;
+  display: none !important;
+  opacity: 0 !important;
+  transition: none !important;
+}
+
+/* A11Y: Overlay komplett deaktivieren */
+body.accessible-mode .item::before {
+  content: none !important;
+  display: none !important;
+  opacity: 0 !important;
+  transition: none !important;
 }
 
 /* Hilfsklasse für Screenreader-Texte */
@@ -327,5 +370,12 @@ body.accessible-mode .a11y-text {
   }
   .pic11 {
     grid-area: 6/6/7/9;
+  }
+
+  /* Einheitliche Bildhöhen im A11Y-Mode */
+  body.accessible-mode .item {
+    min-height: 220px;
+    background-position: center;
+    background-size: cover;
   }
 }
