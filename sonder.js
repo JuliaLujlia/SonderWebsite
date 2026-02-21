@@ -5,10 +5,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const iconOff = toggleBtn.querySelector('[data-icon="off"]');
   const iconOn = toggleBtn.querySelector('[data-icon="on"]');
 
-  const isStoredActive = localStorage.getItem("a11yMode") === "active";
+  const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const storedMode = localStorage.getItem("a11yMode");
 
-  // Initialer Zustand (inkl. Body-Class!)
-  setState(isStoredActive);
+  // 👉 Initialer Zustand bestimmen
+  const isReducedMotion = motionQuery.matches;
+  const isStoredActive = storedMode === "active";
+
+  // Reduced Motion hat Vorrang
+  const shouldBeActive = isReducedMotion || isStoredActive;
+
+  setState(shouldBeActive);
 
   toggleBtn.addEventListener("click", function () {
     const isActive = !document.body.classList.contains("accessible-mode");
@@ -16,11 +23,15 @@ document.addEventListener("DOMContentLoaded", function () {
     setState(isActive);
   });
 
-  function setState(isActive) {
-    // Modus wirklich setzen (wichtig für Reload!)
-    document.body.classList.toggle("accessible-mode", isActive);
+  motionQuery.addEventListener("change", (e) => {
+    if (e.matches) {
+      localStorage.setItem("a11yMode", "active");
+      setState(true);
+    }
+  });
 
-    // ARIA + Icons
+  function setState(isActive) {
+    document.body.classList.toggle("accessible-mode", isActive);
     toggleBtn.setAttribute("aria-pressed", String(isActive));
 
     if (isActive) {
