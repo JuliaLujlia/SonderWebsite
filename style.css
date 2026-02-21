@@ -86,27 +86,32 @@ body {
   }
 }
 
+/* ===== Base Item ===== */
 .item {
   position: relative;
   background-size: cover;
   background-position: center;
   filter: grayscale(100%);
-  transition: all 0.5s ease;
+  transition:
+    filter 0.5s ease,
+    z-index 0s;
   min-height: 250px;
   text-decoration: none;
   display: block;
   overflow: hidden;
 }
 
-/* Hover-Effekt: Farbe zurück & Glow */
-.item:hover {
+/* ===== AKTIVER ZUSTAND (Hover + Focus identisch) ===== */
+.item:hover,
+.item:focus,
+.item:focus-visible {
   filter: grayscale(0%) brightness(1.2);
   outline: 3px solid var(--neon);
   outline-offset: -10px;
   z-index: 10;
 }
 
-/* Schwarzer Overlay beim Hover für Kontrast */
+/* ===== Overlay ===== */
 .item::before {
   content: "";
   position: absolute;
@@ -115,13 +120,16 @@ body {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
-.item:hover::before {
+
+.item:hover::before,
+.item:focus::before,
+.item:focus-visible::before {
   opacity: 1;
 }
 
-/* "TO ACT" Text */
+/* ===== "TO ACT" Text ===== */
 .item::after {
-  content: "TO ACT 1 →";
+  content: var(--hover-text);
   position: absolute;
   top: 55%;
   left: 50%;
@@ -132,12 +140,17 @@ body {
   font-size: 1.1rem;
   text-shadow: 0 0 10px #000;
   opacity: 0;
-  transition: all 0.4s ease;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
   z-index: 2;
 }
-.item:hover::after {
+
+.item:hover::after,
+.item:focus::after,
+.item:focus-visible::after {
   opacity: 1;
-  top: 50%;
+  transform: translate(-50%, -55%);
 }
 
 /* Grid Positionen & Bilder */
