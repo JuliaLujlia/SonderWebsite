@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/variables.css">
     <script src="js/textalternative.js" defer></script>
+    <script src="js/arialive.js" defer></script>
     <script src="https://kit.fontawesome.com/579dd5238a.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');</style>
 </head>
 <body>
@@ -44,7 +46,7 @@
                 </svg>
             </div>
             <a class="skip-link" href="#main-content" id="skipToMainContent" aria-label="Skip to main content">skip navbar</a> <!-- Skip link to skip the navbar and go to the main section -->
-
+            <div id="skipnav-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
             <button
             class="navbar-toggler"
             type="button"
@@ -90,7 +92,7 @@
             <section class="video-section">
                 <h2 class="video-label" id="video-title">Shortfilm - Sonder</h2>
                 <a class="skip-link" href="#intro-section" id="skipToIntroSection" aria-label="Skip to Sonder Description">skip video</a> <!-- Skip link to skip the video and go to the next section -->
-                <div id="skipvideo-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+                <div id="skipvideo-home-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 
                 <div class="video-container" id="video-embed">
                     <iframe
@@ -435,7 +437,4 @@
         </div>
         </main>
 </body>
-<script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-</script>
 </html>
