@@ -5,11 +5,17 @@ const slides = document.querySelectorAll(".inner_part");
 const autoplay_start = document.querySelectorAll(".autoplay-start");
 const autoplay_stop = document.querySelectorAll(".autoplay-stop");
 const collageHotspots = document.querySelectorAll(".hotspot");
+const slideshow = document.querySelector(".slideshow");
 
 let activeSlide = "1"; // Als String, wie data-slide
 let autoPlayInterval;
 let isAutoplayEnabled = true;
 const SLIDE_INTERVAL = 5000;
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+const SWIPE_THRESHOLD = 50; // Mindestbewegung in px
 
 // Überprüfe, ob der Benutzer reduzierte Bewegungen bevorzugt
 function prefersReducedMotion() {
@@ -133,6 +139,21 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+if (slideshow) {
+  slideshow.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    },
+    { passive: true },
+  );
+
+  slideshow.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+}
+
 function autoPlay() {
   showSlide._shouldFocus = false;
   showSlide(parseInt(activeSlide) + 1);
@@ -145,6 +166,25 @@ function resetAutoPlay() {
   if (prefersReducedMotion()) return;
 
   autoPlayInterval = setInterval(autoPlay, SLIDE_INTERVAL);
+}
+
+function handleSwipe() {
+  const diff = touchStartX - touchEndX;
+
+  if (Math.abs(diff) < SWIPE_THRESHOLD) return;
+
+  showSlide._shouldFocus = false;
+  resetAutoPlay();
+
+  if (diff > 0 && activeSlide !== "4") {
+    // Swipe nach links → nächster Slide
+    showSlide(parseInt(activeSlide) + 1);
+  }
+
+  if (diff < 0 && activeSlide !== "1") {
+    // Swipe nach rechts → vorheriger Slide
+    showSlide(parseInt(activeSlide) - 1);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
