@@ -31,98 +31,120 @@ const status_prevSlide = document.getElementById("prevslide-status");
 const btn_nextSlide = document.getElementById("ToNextSlide");
 const status_nextSlide = document.getElementById("nextslide-status");
 
-videolink.addEventListener("click", () => {
-  // leeren, damit wiederholt vorgelesen wird
-  status_skipvideo.textContent = "";
-  setTimeout(() => {
-    status_skipvideo.textContent = "skipped to slideshow";
-  }, 50);
-});
+if (videolink && status_skipvideo) {
+  videolink.addEventListener("click", () => {
+    // leeren, damit wiederholt vorgelesen wird
+    status_skipvideo.textContent = "";
+    setTimeout(() => {
+      status_skipvideo.textContent = "skipped to slideshow";
+    }, 50);
+  });
+}
 
-btn_dropdown.addEventListener("click", () => {
-  // leeren, damit wiederholt vorgelesen wird
-  status_expandedText.textContent = "";
-  setTimeout(() => {
-    status_expandedText.textContent = "text alternative expanded";
+if (btn_dropdown && status_expandedText) {
+  btn_dropdown.addEventListener("click", () => {
+    // leeren, damit wiederholt vorgelesen wird
+    status_expandedText.textContent = "";
+    setTimeout(() => {
+      status_expandedText.textContent = "text alternative expanded";
 
-    btn_dropup.focus();
-  }, 50);
-});
+      btn_dropup.focus();
+    }, 50);
+  });
+}
 
-btn_dropup.addEventListener("click", () => {
-  // leeren, damit wiederholt vorgelesen wird
-  status_hideText.textContent = "";
-  setTimeout(() => {
-    status_hideText.textContent = "text alternative hidden";
+if (btn_dropup && status_hideText) {
+  btn_dropup.addEventListener("click", () => {
+    // leeren, damit wiederholt vorgelesen wird
+    status_hideText.textContent = "";
+    setTimeout(() => {
+      status_hideText.textContent = "text alternative hidden";
 
-    btn_dropdown.focus();
-  }, 50);
-});
+      btn_dropdown.focus();
+    }, 50);
+  });
+}
 
-btn_stopSlide.addEventListener("click", () => {
-  // leeren, damit wiederholt vorgelesen wird
-  status_stopSlide.textContent = "";
-  setTimeout(() => {
-    status_stopSlide.textContent = "autoplay slideshow stopped";
+if (btn_stopSlide && status_stopSlide) {
+  btn_stopSlide.addEventListener("click", () => {
+    // leeren, damit wiederholt vorgelesen wird
+    status_stopSlide.textContent = "";
+    setTimeout(() => {
+      status_stopSlide.textContent = "autoplay slideshow stopped";
 
-    btn_startSlide.focus();
-  }, 50);
-});
+      btn_startSlide.focus();
+    }, 50);
+  });
+}
 
-btn_startSlide.addEventListener("click", () => {
-  // leeren, damit wiederholt vorgelesen wird
-  status_startSlide.textContent = "";
-  setTimeout(() => {
-    status_startSlide.textContent = "autoplay slideshow started";
+if (btn_startSlide && status_startSlide) {
+  btn_startSlide.addEventListener("click", () => {
+    // leeren, damit wiederholt vorgelesen wird
+    status_startSlide.textContent = "";
+    setTimeout(() => {
+      status_startSlide.textContent = "autoplay slideshow started";
 
-    btn_stopSlide.focus();
-  }, 50);
-});
+      btn_stopSlide.focus();
+    }, 50);
+  });
+}
 
-btn_slide1.addEventListener("click", () => {
-  // leeren, damit wiederholt vorgelesen wird
-  status_slide1.textContent = "";
-  setTimeout(() => {
-    status_slide1.textContent = "switched to slide 1";
-  }, 50);
-});
+if (btn_slide1 && status_slide1) {
+  btn_slide1.addEventListener("click", () => {
+    // leeren, damit wiederholt vorgelesen wird
+    status_slide1.textContent = "";
+    setTimeout(() => {
+      status_slide1.textContent = "switched to slide 1";
+    }, 50);
+  });
+}
 
-btn_slide2.addEventListener("click", () => {
-  // leeren, damit wiederholt vorgelesen wird
-  status_slide2.textContent = "";
-  setTimeout(() => {
-    status_slide2.textContent = "switched to slide 2";
-  }, 50);
-});
+if (btn_slide2 && status_slide2) {
+  btn_slide2.addEventListener("click", () => {
+    // leeren, damit wiederholt vorgelesen wird
+    status_slide2.textContent = "";
+    setTimeout(() => {
+      status_slide2.textContent = "switched to slide 2";
+    }, 50);
+  });
+}
 
-btn_slide3.addEventListener("click", () => {
-  // leeren, damit wiederholt vorgelesen wird
-  status_slide3.textContent = "";
-  setTimeout(() => {
-    status_slide3.textContent = "switched to slide 3";
-  }, 50);
-});
+if (btn_slide3 && status_slide3) {
+  btn_slide3.addEventListener("click", () => {
+    // leeren, damit wiederholt vorgelesen wird
+    status_slide3.textContent = "";
+    setTimeout(() => {
+      status_slide3.textContent = "switched to slide 3";
+    }, 50);
+  });
+}
 
-btn_slide4.addEventListener("click", () => {
-  // leeren, damit wiederholt vorgelesen wird
-  status_slide4.textContent = "";
-  setTimeout(() => {
-    status_slide4.textContent = "switched to slide 4";
-  }, 50);
-});
+if (btn_slide4 && status_slide4) {
+  btn_slide4.addEventListener("click", () => {
+    // leeren, damit wiederholt vorgelesen wird
+    status_slide4.textContent = "";
+    setTimeout(() => {
+      status_slide4.textContent = "switched to slide 4";
+    }, 50);
+  });
+}
 
-btn_prevSlide.addEventListener("click", () => {
-  // leeren, damit wiederholt vorgelesen wird
-  status_prevSlide.textContent = "";
-  setTimeout(() => {
-    status_prevSlide.textContent = "switched to previous slide";
-  }, 50);
-});
+if (btn_prevSlide && status_prevSlide) {
+  btn_prevSlide.addEventListener("click", () => {
+    // leeren, damit wiederholt vorgelesen wird
+    status_prevSlide.textContent = "";
+    setTimeout(() => {
+      status_prevSlide.textContent = "switched to previous slide";
+    }, 50);
+  });
+}
 
-btn_nextSlide.addEventListener("click", () => {
-  // leeren, damit wiederholt vorgelesen wird
-  status_nextSlide.textContent = "";
-  setTimeout(() => {
-    status_nextSlide.textContent = "switched to next slide";
-  }, 50);
-});
+if (btn_nextSlide && status_nextSlide) {
+  btn_nextSlide.addEventListener("click", () => {
+    // leeren, damit wiederholt vorgelesen wird
+    status_nextSlide.textContent = "";
+    setTimeout(() => {
+      status_nextSlide.textContent = "switched to next slide";
+    }, 50);
+  });
+}
