@@ -1,0 +1,171 @@
+@import url("./variables.css");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: var(--dark-bg);
+  color: var(--white);
+  font-family: "Lexend", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Skip-Link (Unsichtbar bis Tab-Fokus) */
+.skip-link {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--neon);
+  color: #000;
+  padding: 15px;
+  z-index: 10000;
+}
+
+.act-page .act-main-container {
+  padding-top: 120px;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.act-grid-layout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 40px;
+  max-width: 1600px;
+  padding: 20px;
+  align-items: start;
+}
+
+/* Sidebar: Gelber Titel + Bild */
+.act-sidebar {
+  display: flex;
+  align-items: flex-start;
+}
+
+.vertical-title {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: var(--accent-color); /* Gelb */
+  font-weight: 900;
+  font-size: 2.8rem;
+  margin-right: 20px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.poster-wrapper img {
+  width: 550px; /* Deutlich größer */
+  max-width: 100%; /* Damit es auf kleineren Bildschirmen nicht übersteht */
+  height: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Optional: Ein Schatten für mehr Tiefe */
+}
+
+/* Content: Video + Neon-Blauer Text */
+.video-window iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  background: #111;
+}
+
+.text-info {
+  margin-top: 25px;
+}
+
+.text-info h2 {
+  color: var(--neon); /* Neon-Blau */
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.text-info p {
+  color: var(--neon) !important; /* Textfarbe wie im Screenshot */
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+.nav-arrow {
+  color: var(--accent); /* Pfeile in Gelb */
+  text-decoration: none;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-top: 30px;
+  display: inline-block;
+}
+
+/* ===================================================== 
+      4. ACCESSIBILITY MODE (A11Y)
+      ===================================================== */
+body.accessible-mode {
+  background-color: var(--white) !important;
+  color: #000 !important;
+}
+
+body.accessible-mode .center-title {
+  position: relative !important;
+  transform: none !important;
+  top: 0;
+  left: 0;
+  color: #000 !important;
+  mix-blend-mode: normal !important;
+  font-size: 4rem;
+  text-align: center;
+  padding: 40px 0;
+}
+
+body.accessible-mode .item {
+  display: none !important;
+}
+body.accessible-mode .pic1,
+body.accessible-mode .pic2,
+body.accessible-mode .pic3 {
+  display: block !important;
+  width: 90%;
+  max-width: 600px;
+  margin: 20px auto !important;
+  filter: none !important;
+  border: 5px solid #000;
+}
+
+body.accessible-mode .vertical-title {
+  writing-mode: horizontal-tb !important;
+  transform: none !important;
+  color: #000 !important;
+  margin-bottom: 20px;
+}
+
+body.accessible-mode .act-grid-layout {
+  grid-template-columns: 1fr;
+}
+
+body.accessible-mode .text-info p,
+body.accessible-mode .text-info h2,
+body.accessible-mode .nav-arrow {
+  color: #000 !important;
+}
+
+/* Hilfsklasse für Screenreader-Texte */
+.a11y-text {
+  display: none;
+}
+body.accessible-mode .a11y-text {
+  display: block;
+  background: #000;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
