@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="act.css">
     <link rel="stylesheet" href="css/variables.css">
-    
+    <script src="textalternative.js" defer></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
     </style>
@@ -107,13 +107,16 @@
                 </div>
 
               
+                <div class="container_textalternative">
+                    <div class="wrapper_textalt">
+                        <p>Text alternative </p>
+                        <button class="dropdown" id="ShowText" aria-label="show text alternative" aria-controls="textalternative" aria-expanded="false"><i class="fa-solid fa-angle-down"></i></i></button>
+                        <div id="textexpanded-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+                        <button class="dropup" id="HideText" aria-label="hide text alternative" aria-controls="textalternative" aria-expanded="false"><i class="fa-solid fa-angle-up"></i></i></button>
+                        <div id="texthide-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+                    </div>
                 
-                    <details class="text-alt-container mt-4">
-                        <summary class="text-alt-header">
-                            Text alternative 
-                            <i class="fa-solid fa-angle-down arrow-icon"></i>
-                        </summary>
-                        <div class="text-alt-body mt-3">
+                    <div class="textalternative" id="textalternative">
                             <h3>Act 2: The change</h3>
                             <h4>Location: Subway entrance</h4>
                             <p><em>♪ Monday, Monday by the Mamas & the Papas starts ♪</em></p>
