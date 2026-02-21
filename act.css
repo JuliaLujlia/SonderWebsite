@@ -152,14 +152,29 @@
      max-width: 75ch; /* Optimale Lesebreite */
    }
    
-   .nav-arrow {
-     color: var(--accent-color);
-     text-decoration: none;
-     font-weight: 900;
-     text-transform: uppercase;
-     margin-top: 2rem;
-     display: inline-block;
-   }
+  /* --- ACT NAVIGATION (Pfeile auseinander schieben) --- */
+  .act-nav-links {
+    display: flex;
+    justify-content: space-between; /* Schiebt ACT 1 nach links und ACT 3 nach rechts */
+    align-items: center;
+    width: 100%;
+    max-width: 75ch; /* Damit die Pfeile bündig mit deinem Text abschließen */
+    margin-top: 3rem;
+  }
+
+  .nav-arrow {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 900;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+
+  .nav-arrow:hover {
+    color: var(--neon);
+    transform: translateY(-2px);
+  }
    
    /* ===================================================== 
    4. TEXT ALTERNATIVE (CUSTOM BUTTONS)
@@ -176,6 +191,7 @@
   display: flex;
   align-items: center;
   gap: 15px;
+  
 }
 
 .wrapper_textalt p {
@@ -183,7 +199,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--white);
+  color: var(--neon);
 }
 
 /* Styling für die Toggle-Buttons (Dropdown/Dropup) */
