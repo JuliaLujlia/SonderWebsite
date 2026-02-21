@@ -144,34 +144,81 @@
    }
    
    /* ===================================================== 
-      4. TEXT ALTERNATIVE (DETAILS)
-      ===================================================== */
-   .text-alt-container {
-     border-top: 1px solid rgba(45, 226, 255, 0.2);
-     margin-top: 2rem;
-   }
-   
-   .text-alt-header {
-     list-style: none;
-     cursor: pointer;
-     color: var(--neon);
-     padding: 1rem 0;
-     font-weight: 700;
-     text-transform: uppercase;
-     display: flex;
-     align-items: center;
-     gap: 10px;
-   }
-   
-   .text-alt-header::-webkit-details-marker { display: none; }
-   
-   .text-alt-container[open] .arrow-icon { transform: rotate(180deg); }
-   
-   .text-alt-body {
-     padding: 1.5rem;
-     background: rgba(255, 255, 255, 0.05);
-     border-left: 3px solid var(--neon);
-   }
+   4. TEXT ALTERNATIVE (CUSTOM BUTTONS)
+   ===================================================== */
+
+.container_textalternative {
+  border-top: 1px solid rgba(45, 226, 255, 0.2);
+  margin-top: 3rem;
+  padding-top: 1rem;
+}
+
+/* Flexbox für Text und Buttons in einer Reihe */
+.wrapper_textalt {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.wrapper_textalt p {
+  margin: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--white);
+}
+
+/* Styling für die Toggle-Buttons (Dropdown/Dropup) */
+.dropdown, .dropup {
+  background: transparent;
+  border: 1px solid var(--neon);
+  color: var(--neon);
+  border-radius: 4px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown:hover, .dropup:hover {
+  background-color: var(--neon);
+  color: var(--dark-bg);
+  box-shadow: 0 0 10px var(--neon);
+}
+
+/* Die Inhalts-Box (der eigentliche Text) */
+.textalternative {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 3px solid var(--neon);
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.textalternative h2, .textalternative h3 {
+  color: var(--neon);
+  margin-bottom: 0.5rem;
+}
+
+/* Hilfsklasse zum Ein-/Ausblenden (wird per JS gesteuert) */
+.is-hidden {
+  display: none !important;
+}
+
+/* Anpassung für den A11Y-Modus */
+body.accessible-mode .textalternative {
+  background: #f0f0f0;
+  border: 2px solid #000;
+  color: #000 !important;
+}
+
+body.accessible-mode .dropdown, 
+body.accessible-mode .dropup {
+  border: 2px solid #000;
+  color: #000;
+}
    
    /* ===================================================== 
       5. DESKTOP OPTIMIERUNG (AB 992PX)
