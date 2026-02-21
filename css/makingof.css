@@ -62,12 +62,16 @@ q {
 
 a {
   color: var(--focus);
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 }
 
 a:hover {
   color: var(--accent-color);
   text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 .hero {
@@ -183,9 +187,6 @@ a:hover {
   margin-top: 0.5rem;
 }
 
-#making_extended {
-  color: var(--focus);
-}
 .dropdown,
 .dropup {
   background: transparent;
@@ -298,6 +299,7 @@ q {
   border-radius: var(--border-radius);
   padding: 10px;
   margin-bottom: 28px;
+  max-height: 100dvh;
 }
 .card {
   grid-area: card;
@@ -309,7 +311,7 @@ q {
   flex-direction: row;
   justify-content: center;
   overflow: visible;
-  height: 80%;
+  height: 80dvh;
   background-color: transparent;
   border-radius: 0px;
   border: none;
@@ -717,6 +719,8 @@ q {
   .content {
     width: 40%;
     min-height: 0;
+    max-height: 80dvh;
+    margin-top: 20px;
   }
 
   .arrow {
