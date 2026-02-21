@@ -1,357 +1,265 @@
-/* 1. GRUNDGERÜST */
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    font-family: 'Inter', sans-serif;
-    overflow: hidden; /* Verhindert Scrollen auf der Startseite */
-}
+/* ===================================================== 
+   1. CORE & FONTS
+   ===================================================== */
+   @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
-/* 2. COLLAGE-GRID */
-.collage-container {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    gap: 10px;
-    width: 100vw;
-    height: 100vh; /* Füllt das Fenster */
-    position: relative;
-    z-index: 1;
-    padding-top: 0; /* Platz für die Navbar */
-}
-
-/* 3. EINZELNE BILDER (Links) */
-.item {
-    display: block; 
-    background-size: cover;
-    background-position: center;
-    background-color: #1a1a1a;
-    filter: grayscale(80%);
-    transition: all 0.5s ease-out; 
-    text-decoration: none;
-    position: relative;
-}
-
-/* Hover- & Fokus-Effekt */
-.item:hover, .item:focus {
-    filter: grayscale(0%) brightness(1.1);
-    transform: scale(1.02); 
-    z-index: 10; 
-    outline: 2px solid #2de2ff; /* Neon-Blau Passend zur Navbar */
-    outline-offset: -5px;
-}
-
-/* GRID-POSITIONEN (Stelle sicher, dass die Dateinamen PHOTO-01.jpg exakt so im Ordner liegen) */
-.pic1 { grid-area: 1 / 1 / 3 / 3; background-image: url('assets/PHOTO-01.jpg'); }
-.pic2 { grid-area: 1 / 3 / 2 / 5; background-image: url('assets/PHOTO-02.jpg'); }
-.pic3 { grid-area: 1 / 5 / 3 / 7; background-image: url('assets/PHOTO-03.jpg'); }
-.pic4 { grid-area: 1 / 7 / 4 / 9; background-image: url('assets/PHOTO-04.jpg'); }
-.pic5 { grid-area: 2 / 3 / 4 / 5; background-image: url('assets/PHOTO-05.jpg'); }
-.pic6 { grid-area: 3 / 1 / 5 / 3; background-image: url('assets/PHOTO-06.jpg'); }
-.pic7 { grid-area: 3 / 5 / 4 / 7; background-image: url('assets/PHOTO-07.jpg'); }
-.pic8 { grid-area: 4 / 3 / 7 / 6; background-image: url('assets/PHOTO-08.jpg'); }
-.pic9 { grid-area: 4 / 6 / 6 / 9; background-image: url('assets/PHOTO-09.jpg'); }
-.pic10 { grid-area: 5 / 1 / 7 / 3; background-image: url('assets/PHOTO-10.jpg'); }
-.pic11 { grid-area: 6 / 6 / 7 / 9; background-image: url('assets/PHOTO-11.jpg'); }
-
-/* 4. TITEL (Effekt) */
-.center-title {
-    position: absolute;
-    top: 55%; /* Leicht nach unten verschoben wegen der Navbar */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    font-size: 20vw;
-    font-weight: 900;
-    color: white;
-    text-transform: uppercase;
-    line-height: 0.8; 
-    text-align: right; 
-    letter-spacing: -0.05em;
-    mix-blend-mode: difference;
-    z-index: 20; 
-    pointer-events: none; /* Klicks gehen durch den Titel auf die Bilder */
-}
-
-/* 5. OVERLAY & ACCESSIBILITY */
-.overlay {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Resolution_Grain.png');
-    opacity: 0.05;
-    pointer-events: none;
-    z-index: 100; 
-}
-
-.skip-link {
-    position: absolute;
-    top: -100px;
-    left: 0;
-    background: #2de2ff;
-    color: #000;
-    padding: 10px;
-    z-index: 10000;
-    transition: top 0.3s;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.skip-link:focus {
-    top: 0;
-}
-
-/* ACT 1 SPECIFIC STYLES */
-
-/* Container Layout */
-.act-main-container {
-    /* Nutzt die volle Höhe abzüglich der Navbar-Höhe */
-    min-height: calc(100vh - 70px); 
-    display: flex;
-    justify-content: center; /* Horizontal zentrieren */
-    align-items: center;     /* Vertikal zentrieren */
-    padding: 20px;           /* Kleiner Sicherheitsabstand zu den Rändern */
-    margin-top: 70px;        /* Genau die Höhe deiner Navbar */
-    box-sizing: border-box;
-}
-
-.act-grid-layout {
-    display: grid;
-    grid-template-columns: 350px 1fr;
-    gap: 40px;
-    max-width: 1200px;
-    width: 100%;
-    /* Entferne hier eventuelle feste Margins, falls vorhanden */
-    margin: 0 auto; 
-}
-
-/* Sidebar mit Bild und vertikalem Text */
-.act-sidebar {
-    position: relative;
-}
-
-.poster-wrapper {
-    position: relative;
-    height: 600px; /* Höhe an dein Design anpassen */
-    overflow: hidden;
+   :root {
+       --neon: #2de2ff;      /* Das helle Blau */
+       --accent: #f3c813;    /* Das Gelb aus dem Screenshot */
+       --dark-bg: #000000;
+       --white: #ffffff;
+   }
+   
+   html, body {
+       margin: 0;
+       padding: 0;
+       width: 100%;
+       background-color: var(--dark-bg);
+       color: var(--white);
+       font-family: 'Lexend', sans-serif;
+       overflow-x: hidden;
+   }
+   
+   /* Skip-Link (Unsichtbar bis Tab-Fokus) */
+   .skip-link {
+       position: absolute;
+       left: -10000px;
+       top: auto;
+       width: 1px;
+       height: 1px;
+       overflow: hidden;
+   }
+   .skip-link:focus {
+       position: fixed;
+       top: 0; left: 0;
+       background: var(--neon);
+       color: #000;
+       padding: 15px;
+       z-index: 10000;
+   }
+   
+   /* ===================================================== 
+      2. COLLAGE (sonder.html)
+      ===================================================== */
+   .collage-container {
+       display: grid;
+       grid-template-columns: repeat(2, 1fr);
+       gap: 10px;
+       padding: 80px 10px 20px;
+   }
+   
+   @media (min-width: 1024px) {
+       .collage-container {
+           grid-template-columns: repeat(8, 1fr);
+           grid-template-rows: repeat(6, 1fr);
+           height: 100vh;
+           padding: 0;
+           gap: 0;
+       }
+   }
+   
+   .item {
+       position: relative;
+       background-size: cover;
+       background-position: center;
+       filter: grayscale(100%);
+       transition: all 0.5s ease;
+       min-height: 250px;
+       text-decoration: none;
+       display: block;
+       overflow: hidden;
+   }
+   
+   /* Hover-Effekt: Farbe zurück & Glow */
+   .item:hover {
+       filter: grayscale(0%) brightness(1.2);
+       outline: 3px solid var(--neon);
+       outline-offset: -10px;
+       z-index: 10;
+   }
+   
+   /* Schwarzer Overlay beim Hover für Kontrast */
+   .item::before {
+       content: "";
+       position: absolute;
+       inset: 0;
+       background: rgba(0, 0, 0, 0.5);
+       opacity: 0;
+       transition: opacity 0.3s ease;
+   }
+   .item:hover::before { opacity: 1; }
+   
+   /* "TO ACT" Text */
+   .item::after {
+       content: "TO ACT →";
+       position: absolute;
+       top: 55%; left: 50%;
+       transform: translate(-50%, -50%);
+       color: var(--white);
+       font-weight: 800;
+       letter-spacing: 0.4em;
+       font-size: 1.1rem;
+       text-shadow: 0 0 10px #000;
+       opacity: 0;
+       transition: all 0.4s ease;
+       z-index: 2;
+   }
+   .item:hover::after { opacity: 1; top: 50%; }
+   
+   /* Grid Positionen & Bilder */
+   .pic1 { grid-area: 1/1/3/3; background-image: url('assets/PHOTO-01.jpg'); }
+   .pic2 { grid-area: 1/3/2/5; background-image: url('assets/PHOTO-02.jpg'); }
+   .pic3 { grid-area: 1/5/3/7; background-image: url('assets/PHOTO-03.jpg'); }
+   .pic4 { grid-area: 1/7/4/9; background-image: url('assets/PHOTO-04.jpg'); }
+   .pic5 { grid-area: 2/3/4/5; background-image: url('assets/PHOTO-05.jpg'); }
+   .pic6 { grid-area: 3/1/5/3; background-image: url('assets/PHOTO-06.jpg'); }
+   .pic7 { grid-area: 3/5/4/7; background-image: url('assets/PHOTO-07.jpg'); }
+   .pic8 { grid-area: 4/3/7/6; background-image: url('assets/PHOTO-08.jpg'); }
+   .pic9 { grid-area: 4/6/6/9; background-image: url('assets/PHOTO-09.jpg'); }
+   .pic10 { grid-area: 5/1/7/3; background-image: url('assets/PHOTO-10.jpg'); }
+   .pic11 { grid-area: 6/6/7/9; background-image: url('assets/PHOTO-11.jpg'); }
+   
+   .center-title {
+       position: absolute;
+       top: 50%; left: 50%;
+       transform: translate(-50%, -50%);
+       font-size: 12vw;
+       font-weight: 900;
+       mix-blend-mode: difference;
+       pointer-events: none;
+       z-index: 5;
+       margin: 0;
+   }
+   
+   /* ===================================================== 
+      3. ACT PAGES (LAYOUT AUS DEM SCREENSHOT)
+      ===================================================== */
+   .act-page .act-main-container {
+       padding-top: 120px;
+       display: flex;
+       justify-content: center;
+       min-height: 100vh;
+   }
+   
+   .act-grid-layout {
+       display: grid;
+       grid-template-columns: auto 1fr;
+       gap: 40px;
+       max-width: 1600px;
+       padding: 20px;
+       align-items: start;
+   }
+   
+   /* Sidebar: Gelber Titel + Bild */
+   .act-sidebar {
+       display: flex;
+       align-items: flex-start;
+   }
+   
+   .vertical-title {
+       writing-mode: vertical-rl;
+       transform: rotate(180deg);
+       color: var(--accent); /* Gelb */
+       font-weight: 900;
+       font-size: 2.8rem;
+       margin-right: 20px;
+       text-transform: uppercase;
+       white-space: nowrap;
+   }
+   
+   .poster-wrapper img {
+    width: 550px; /* Deutlich größer */
+    max-width: 100%; /* Damit es auf kleineren Bildschirmen nicht übersteht */
+    height: auto;
     border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Optional: Ein Schatten für mehr Tiefe */
 }
-
-.sidebar-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.6) contrast(1.2); /* Wong Kar-wai Look */
-}
-
-/* Vertikale Schrift ÜBER dem Bild */
-.vertical-title {
-    position: absolute;
-    top: 20px;            /* Geändert von bottom auf top, um ihn hochzusetzen */
-    left: 20px;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    font-size: 3rem;
-    font-weight: 900;
-    color: var(--accent-color); /* Nutzt dein Tungsten-Gelb */
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    z-index: 5;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.8); /* Lesbarkeit auf dem Bild */
-}
-
-/* Video Bereich */
-.video-window {
-    border: 1px solid var(--nav-border);
-    box-shadow: 0 0 40px rgba(0,0,0,0.5);
-}
-
-.video-window iframe {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    display: block;
-}
-
-/* Verzierungen */
-.back-link {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: 0.3s;
-}
-
-.back-link:hover {
-    color: var(--neon);
-    text-shadow: 0 0 10px var(--neon);
-}
-
-/* Navigation Pfeile Styling */
-.act-nav-links {
-    display: flex;
-    gap: 30px;
-    margin-top: 30px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 20px;
-}
-
-.nav-arrow {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: 0.3s ease;
-    font-size: 1.1rem;
-}
-
-.nav-arrow:hover {
-    color: var(--neon);
-    text-shadow: 0 0 15px var(--neon);
-    transform: translateX(5px); /* Kleiner Bewegungseffekt */
-}
-
-/* Für den Pfeil nach links die Bewegung umkehren */
-.nav-arrow:first-child:hover {
-    transform: translateX(-5px);
-}
-
-.btn-a11y-neon {
-    display: none; /* Standardmäßig überall unsichtbar */
-    background: transparent;
-    border: 1px solid var(--neon);
-    color: var(--neon);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    box-shadow: 0 0 10px rgba(45, 226, 255, 0.3);
-}
-
-/* Zeige den Button nur, wenn die Seite die Klasse 'show-a11y' hat */
-.show-a11y .btn-a11y-neon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-/* 1. Filmkorn-Overlay ausblenden */
-body.accessible-mode .overlay {
-    display: none !important;
-}
-
-/* ... (Hier drüber steht dein normales Design für Collage, Titel, etc.) ... */
-
-/* ======================================================= */
-/* DER ULTIMATIVE BARRIEREFREI-MODUS (INKL. ZUSATZBILDER) */
-/* ======================================================= */
-
-body.accessible-mode {
-    background-color: #ffffff !important; 
-    color: #000000 !important;           
-    overflow: auto !important; 
-}
-
-/* 1. Alles ausblenden, was stört */
-body.accessible-mode .overlay, 
-body.accessible-mode .logo-icon,
-body.accessible-mode .navbar-toggler {
-    display: none !important;
-}
-
-/* 2. SONDER-SEITE: TITEL RESET */
-body.accessible-mode .center-title {
-    position: relative !important;
-    top: 0 !important; left: 0 !important;
-    transform: none !important;
-    display: block !important;
-    text-align: center !important;
-    margin: 50px 0 !important;
-    font-size: 10vw !important; /* Etwas kleiner für die Liste */
-    color: #000000 !important;
-    mix-blend-mode: normal !important; 
-}
-
-/* 3. SONDER-SEITE: DIE LISTE (CONTAINER) */
-body.accessible-mode .collage-container {
-    display: flex !important;
-    flex-direction: column !important; /* Alles untereinander */
-    gap: 50px !important;
-    padding: 20px !important;
-    height: auto !important;
-    align-items: center !important;
-}
-
-/* 4. ELEMENTE-STEUERUNG (WAS IST SICHTBAR?) */
-
-/* Erstmal ALLES verstecken */
-body.accessible-mode .item {
-    display: none !important;
-}
-
-/* DIE 3 AKT-LINKS EINBLENDEN */
-body.accessible-mode .item[href="act1.html"],
-body.accessible-mode .item[href="act2.html"],
-body.accessible-mode .item[href="act3.html"] {
-    display: flex !important; 
-    flex-direction: column !important;
-    width: 100% !important;
-    max-width: 600px !important;
-    height: auto !important;
-    background-color: #f2f2f2 !important;
-    border: 6px solid #000 !important;
-    text-decoration: none !important;
-    filter: grayscale(0%) !important; /* Bilder in Farbe zeigen */
-    order: 1; /* Standard-Reihenfolge */
-}
-
-/* DREI RANDOM BILDER ALS DEKO EINBLENDEN (z.B. pic4, pic8, pic11) */
-body.accessible-mode .pic4,
-body.accessible-mode .pic8,
-body.accessible-mode .pic11 {
-    display: block !important;
-    width: 100% !important;
-    max-width: 600px !important;
-    height: 350px !important;
-    border: 6px solid #000 !important;
-    filter: grayscale(0%) !important;
-    pointer-events: none !important; /* Nicht klickbar */
-}
-
-/* 5. TEXTE IN DER LISTE */
-body.accessible-mode .a11y-text {
-    display: block !important;
-    font-size: 2.2rem !important;
-    font-weight: 900 !important;
-    color: #000 !important;
-    padding: 25px !important;
-    text-align: center !important;
-    background: #fff !important;
-    border-top: 6px solid #000 !important;
-}
-
-/* 6. ACT-SEITEN REGLER (Bild & horizontaler Titel) */
-body.accessible-mode .act-grid-layout {
-    display: block !important; 
-    max-width: 850px !important;
-    margin: 0 auto !important;
-}
-
-body.accessible-mode .vertical-title {
-    writing-mode: horizontal-tb !important; 
-    transform: none !important;
-    position: static !important;
-    color: #000 !important;
-    font-size: 3.5rem !important;
-    font-weight: 900 !important;
-    margin: 0 auto 30px auto !important;
-    display: block !important;
-    text-align: center !important;
-}
-
-body.accessible-mode .sidebar-img {
-    display: block !important;
-    filter: none !important; 
-    border: 6px solid #000 !important;
-    width: 100%
+   
+   /* Content: Video + Neon-Blauer Text */
+   .video-window iframe {
+       width: 100%;
+       aspect-ratio: 16 / 9;
+       border: none;
+       background: #111;
+   }
+   
+   .text-info { margin-top: 25px; }
+   
+   .text-info h2 {
+       color: var(--neon); /* Neon-Blau */
+       font-weight: 800;
+       text-transform: uppercase;
+       margin-bottom: 10px;
+   }
+   
+   .text-info p {
+       color: var(--neon) !important; /* Textfarbe wie im Screenshot */
+       font-weight: 300;
+       font-size: 1rem;
+       line-height: 1.7;
+       max-width: 600px;
+   }
+   
+   .nav-arrow {
+       color: var(--accent); /* Pfeile in Gelb */
+       text-decoration: none;
+       font-weight: 900;
+       text-transform: uppercase;
+       margin-top: 30px;
+       display: inline-block;
+   }
+   
+   /* ===================================================== 
+      4. ACCESSIBILITY MODE (A11Y)
+      ===================================================== */
+   body.accessible-mode {
+       background-color: var(--white) !important;
+       color: #000 !important;
+   }
+   
+   body.accessible-mode .center-title {
+       position: relative !important;
+       transform: none !important;
+       top: 0; left: 0;
+       color: #000 !important;
+       mix-blend-mode: normal !important;
+       font-size: 4rem;
+       text-align: center;
+       padding: 40px 0;
+   }
+   
+   body.accessible-mode .item { display: none !important; }
+   body.accessible-mode .pic1, 
+   body.accessible-mode .pic2, 
+   body.accessible-mode .pic3 {
+       display: block !important;
+       width: 90%; max-width: 600px;
+       margin: 20px auto !important;
+       filter: none !important;
+       border: 5px solid #000;
+   }
+   
+   body.accessible-mode .vertical-title {
+       writing-mode: horizontal-tb !important;
+       transform: none !important;
+       color: #000 !important;
+       margin-bottom: 20px;
+   }
+   
+   body.accessible-mode .act-grid-layout {
+       grid-template-columns: 1fr;
+   }
+   
+   body.accessible-mode .text-info p, 
+   body.accessible-mode .text-info h2,
+   body.accessible-mode .nav-arrow {
+       color: #000 !important;
+   }
+   
+   /* Hilfsklasse für Screenreader-Texte */
+   .a11y-text { display: none; }
+   body.accessible-mode .a11y-text {
+       display: block;
+       background: #000; color: #fff;
+       padding: 10px; text-align: center;
+   }

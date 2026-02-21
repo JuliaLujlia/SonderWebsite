@@ -1,38 +1,39 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sonder | Act 3 - The Awakening</title>
     
-    <link rel="stylesheet" href="variables.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="act_style.css"> 
+    <link rel="stylesheet" href="variables.css">
     
     <script src="https://kit.fontawesome.com/579dd5238a.js" crossorigin="anonymous"></script>
 </head>
-<body class="show-a11y" style="background-color: var(--nav-bg-1); color: var(--text-color);">
+<body class="show-a11y act-page">
+    
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" aria-label="Main Navigation">
         <div class="container-fluid">
             <div class="logo-icon" aria-hidden="true">
-                <svg width="44" height="46">...</svg> 
+                <svg width="44" height="46" viewBox="0 0 1260 1420"><path d="M630 0L1260 1420H0L630 0Z" fill="#2de2ff"/></svg> 
             </div>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle Navigation">
                 <span class="custom-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="homepage.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="sonder.html">Sonder</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="sonder.html">Sonder</a></li>
                     <li class="nav-item"><a class="nav-link" href="makingof.html">Making Of</a></li>
                     
                     <li class="nav-item ms-lg-3">
-                        <button id="a11y-toggle" class="btn-a11y-neon" title="Barrierefreie Ansicht">
+                        <button id="a11y-toggle" class="btn-a11y-neon" title="Toggle Accessibility View">
                             <i class="fa-solid fa-universal-access"></i>
                         </button>
                     </li>
@@ -46,28 +47,35 @@
     <main class="act-main-container" id="main-content">
         <div class="act-grid-layout">
             
-            <div class="act-sidebar">
-                <h2 class="vertical-title">ACT 3 — SONDER</h2>
+            <aside class="act-sidebar">
+                <h1 class="vertical-title">ACT 3 — THE AWAKENING</h1>
                 <div class="poster-wrapper">
-                    <img src="assets/PHOTO-03.jpg" alt="Atmosphärisches Bild Act 3" class="sidebar-img">
+                    <img src="assets/PHOTO-03.jpg" alt="Atmospheric poster for Act 3 - The Awakening" class="sidebar-img">
                 </div>
-            </div>
+            </aside>
 
-            <div class="act-content">
+            <section class="act-content">
                 <div class="video-window">
-                    <iframe src="https://www.youtube.com/embed/AkoML0_FiV4" frameborder="0" allowfullscreen></iframe>
+                    <iframe 
+                        src="https://www.youtube.com/embed/AkoML0_FiV4" 
+                        title="Act 3 Video Content"
+                        allowfullscreen>
+                    </iframe>
                 </div>
 
                 <div class="text-info mt-5">
-                    <h3 style="color: var(--neon);">A New Perspective</h3>
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
+                    <h2>The Infinite Tapestry of Souls</h2>
+                    <p>
+                        The veil finally thins, and the gravity of the 'Other' collapses upon you. This is the awakening: the profound and overwhelming realization of Sonder. You look at a stranger and see a universe—a library of unread books, a lifetime of secrets, and a heart that beats with the same intensity as your own. In this moment, you are no longer the protagonist of the world, but a single thread in a vast, invisible tapestry. The city is no longer a backdrop of concrete; it is a living, breathing symphony of millions of stories happening all at once.
+                    </p>
                     
-                    <div class="act-nav-links">
+                    <nav class="act-nav-links" aria-label="Act navigation">
                         <a href="act2.html" class="nav-arrow">← ACT 2</a>
-                        <a href="sonder.html" class="nav-arrow">COLLAGE →</a>
-                    </div>
+                        <a href="sonder.html" class="nav-arrow">BACK TO COLLAGE →</a>
+                    </nav>
                 </div>
-            </div>
+            </section>
+
         </div>
     </main>
 
