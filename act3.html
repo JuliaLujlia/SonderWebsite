@@ -17,9 +17,6 @@
     <script src="https://kit.fontawesome.com/579dd5238a.js" crossorigin="anonymous"></script>
 </head>
 <body class="act-page">
-    
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
     <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navigation">
         <div class="container-fluid">
           <div class="logo-icon" aria-hidden="true">
@@ -45,7 +42,7 @@
               </g>
             </svg>
           </div>
-          <a class="skip-link" href="#main-content" id="skipToMainContent" aria-label="Skip navbar">skip navbar</a>
+          <a class="skip-link" href="#main-content" id="skipToMainContent" aria-label="Skip navbar and accessibility button">skip navbar</a>
           <!-- Skip link to skip the navbar and go to the main section -->
           <div id="skipnav-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
           <button
@@ -93,11 +90,13 @@
 
             <aside class="act-sidebar">
                 <div class="poster-wrapper">
-                    <img src="assets/Philipp.png" alt="Poster for Act 3" class="sidebar-img">
+                    <img src="assets/Philipp.png" alt="A man in a long dark coat and headphones walks down a subway staircase under bright geometric ceiling lights, viewed from a low angle." class="sidebar-img">
                 </div>
             </aside>
 
             <section class="act-content">
+              <a class="skip-link" href="#text-info" id="skipToTextInfo" aria-label="Skip to Something to Think about">skip video</a> <!-- Skip link to skip the video and go to the next section -->
+                <div id="skipvideo-act-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
                 <div class="video-window">
                     <iframe 
                         src="https://www.youtube.com/embed/HIiqsKJSv4w?start=422" 
@@ -198,11 +197,13 @@
                         <q>End Credits...</q></p>strong> "Life is short, but it is wide. You just have to be brave enough to press pause."</p>
                         </div>
                     </details>
-                    <div class="text-info mt-5">
-                        <h2>The Connection Beneath the Surface</h2>
+                    <section id="text-info" class="text-section" tabindex="-1">
+                    <div class="text-info">
+                        <h2>The Connection Beneath the Surface.</h2>
                         <p>
                             Once you start wondering, you cannot stop. You see the surface, but underneath, there is a whole ocean you will never truly see. Everyone is busy with their own script, their own panic, their own desire. But life is short, and it is wide—you just have to be brave enough to press pause.
                         </p>
+                      </section>
                 </div>
                     <nav class="act-nav-links mt-5">
                         <a href="act2.html" class="nav-arrow">← ACT 2</a>

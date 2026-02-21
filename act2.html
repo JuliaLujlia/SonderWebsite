@@ -16,9 +16,6 @@
     <script src="https://kit.fontawesome.com/579dd5238a.js" crossorigin="anonymous"></script>
 </head>
 <body class="act-page">
-    
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
     <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navigation">
         <div class="container-fluid">
           <div class="logo-icon" aria-hidden="true">
@@ -44,7 +41,7 @@
               </g>
             </svg>
           </div>
-          <a class="skip-link" href="#main-content" id="skipToMainContent" aria-label="Skip navbar">skip navbar</a>
+          <a class="skip-link" href="#main-content" id="skipToMainContent" aria-label="Skip navbar and accessibility button">skip navbar</a>
           <!-- Skip link to skip the navbar and go to the main section -->
           <div id="skipnav-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
           <button
@@ -92,11 +89,13 @@
 
             <aside class="act-sidebar">
                 <div class="poster-wrapper">
-                    <img src="assets/AJ.png" alt="Poster for Act 2" class="sidebar-img">
+                    <img src="assets/AJ.png" alt="Close-up side profile of a man wearing a black beanie and a plaid coat, looking ahead with a serious expression on an overcast day." class="sidebar-img">
                 </div>
             </aside>
 
             <section class="act-content">
+              <a class="skip-link" href="#text-info" id="skipToTextInfo" aria-label="Skip to Something to Think about">skip video</a> <!-- Skip link to skip the video and go to the next section -->
+                <div id="skipvideo-act-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
                 <div class="video-window">
                     <iframe 
                         src="https://www.youtube.com/embed/AkoML0_FiV4?start=338&end=422" 
@@ -173,11 +172,13 @@
                             </p>
                         </div>
                     </details>
-                    <div class="text-info mt-5">
-                        <h2>The Pursuit of a Fleeting Truth</h2>
+                    <section id="text-info" class="text-section" tabindex="-1">
+                    <div class="text-info">
+                        <h2>The Pursuit of a Fleeting Truth.</h2>
                         <p>
                             There is a sudden, sharp hunger that habit can no longer satisfy. It is the moment you realize that time is leaking through your fingers like neon light. The chase is not a run toward a destination, but a desperate sprint to catch up to a version of yourself that is still truly alive.
-                        </p>    
+                        </p>  
+                      </section>  
                 </div>
                 
                     <nav class="act-nav-links mt-5">

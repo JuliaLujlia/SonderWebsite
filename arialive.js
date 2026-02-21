@@ -7,6 +7,9 @@ const status_skipvideoHome = document.getElementById("skipvideo-home-status");
 const linkNav = document.getElementById("skipToMainContent");
 const status_skipNav = document.getElementById("skipnav-status");
 
+const linkTextInfo = document.getElementById("skipToTextInfo");
+const status_skipTextInfo = document.getElementById("skipvideo-act-status");
+
 const btn_dropdown = document.getElementById("ShowText");
 const status_expandedText = document.getElementById("textexpanded-status");
 
@@ -63,6 +66,16 @@ if (linkNav && status_skipNav) {
     status_skipNav.textContent = "";
     setTimeout(() => {
       status_skipNav.textContent = "skipped to main content";
+    }, 50);
+  });
+}
+
+if (linkTextInfo && status_skipTextInfo) {
+  linkTextInfo.addEventListener("click", () => {
+    // leeren, damit wiederholt vorgelesen wird
+    status_skipTextInfo.textContent = "";
+    setTimeout(() => {
+      status_skipTextInfo.textContent = "skipped to something to think about";
     }, 50);
   });
 }
