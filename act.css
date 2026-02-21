@@ -26,10 +26,45 @@
    /* ===================================================== 
       2. BARRIEREFREIHEIT
       ===================================================== */
-   
+   .skip-link {
+      display: block;
+      margin: 0;
+      padding: 0px;
+      width: 150px;
+      text-align: center;
+      background: var(--background-color);
+      color: var(--text-color);
+      text-decoration: none;
+      border-radius: 8px;
+
+      /* unsichtbar solange kein Fokus */
+      opacity: 0;
+      pointer-events: none; /* nicht klickbar, solange unsichtbar */
+      height: 0;
+      overflow: hidden;
+    }
+
+    .skip-link:focus,
+    .skip-link:focus-visible {
+      opacity: 1;
+      pointer-events: auto;
+      height: auto;
+      overflow: visible;
+      margin: 0 auto;
+      padding: 4px 8px;
+      outline: 3px solid var(--focus);
+      box-shadow: 0 0 0 4px var(--glow);
+      margin: 8px;
+    }
+
+    .skip-link:hover {
+      color: var(--focus);
+      transform: translateY(-1px);
+    }
    *:focus-visible {
-     outline: 3px solid var(--neon);
-     outline-offset: 4px;
+      /* inner indicator */
+      outline: 3px solid var(--focus);
+      box-shadow: 0 0 0 4px var(--glow);
    }
    
    .sr-only {
