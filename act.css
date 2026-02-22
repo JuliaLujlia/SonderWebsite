@@ -125,7 +125,7 @@
    
      /* Bestehende Styles beibehalten: */
      border: 1px solid rgba(255, 255, 255, 0.1);
-     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+     box-shadow: 0 10px 30px rgba(14, 14, 14, 0.5);
    }
    
    /* --- VIDEO & TEXT --- */
@@ -133,7 +133,7 @@
      width: 100%;
      aspect-ratio: 16 / 9;
      border: none;
-     background: #000;
+     background: #0a0a0a;
      border-radius: 4px;
    }
    
@@ -240,19 +240,6 @@
 .is-hidden {
   display: none !important;
 }
-
-/* Anpassung für den A11Y-Modus */
-body.accessible-mode .textalternative {
-  background: #f0f0f0;
-  border: 2px solid #000;
-  color: #000 !important;
-}
-
-body.accessible-mode .dropdown, 
-body.accessible-mode .dropup {
-  border: 2px solid #000;
-  color: #000;
-}
    
    /* ===================================================== 
       5. DESKTOP OPTIMIERUNG (AB 992PX)
@@ -264,23 +251,3 @@ body.accessible-mode .dropup {
      }
    }
    
-   /* ===================================================== 
-      6. ACCESSIBILITY MODE (A11Y)
-      ===================================================== */
-   body.accessible-mode {
-     background-color: #ffffff !important;
-     color: #000000 !important;
-   }
-   
-   body.accessible-mode .vertical-title,
-   body.accessible-mode .text-info p,
-   body.accessible-mode .text-info h2,
-   body.accessible-mode .nav-arrow,
-   body.accessible-mode .text-alt-header {
-     color: #000000 !important;
-   }
-   
-   body.accessible-mode .text-alt-body {
-     background: #f0f0f0;
-     border: 2px solid #000;
-   }
