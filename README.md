@@ -18,5 +18,7 @@ The concept of Sonder describes the moment you realize that every stranger aroun
 
 Our short film explores what happens when someone becomes trapped in isolation and routine. Moving through life on autopilot, disconnected from the world around him. An unexpected encounter interrupts this cycle and forces him to pause, look up, and finally notice.
 
+
 Website by Lea, Berivan & Julia
+
 Video by Andreas, Phillip, Berivan & Julia
