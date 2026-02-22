@@ -223,7 +223,7 @@ a:hover {
 .dropdown i,
 .dropup i {
   font-size: 24px;
-  color: white;
+  color: var(--text-color);
   pointer-events: none;
 }
 
@@ -666,7 +666,7 @@ dl {
 .arrow i,
 .autoplay i {
   font-size: 24px;
-  color: white;
+  color: var(--text-color);
   pointer-events: none;
 }
 
