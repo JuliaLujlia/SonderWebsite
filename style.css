@@ -1,0 +1,381 @@
+@import url("./variables.css");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: var(--dark-bg);
+  color: var(--white);
+  font-family: "Lexend", sans-serif;
+  overflow-x: hidden;
+}
+
+*:focus {
+  /* inner indicator */
+  outline: 3px solid var(--focus);
+  box-shadow: 0 0 0 4px var(--glow);
+}
+
+/* Skip-Link (Unsichtbar bis Tab-Fokus) */
+.skip-link {
+  display: block;
+  margin: 0;
+  padding: 0px;
+  width: 150px;
+  text-align: center;
+  background: var(--background-color);
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 8px;
+
+  /* unsichtbar solange kein Fokus */
+  opacity: 0;
+  pointer-events: none; /* nicht klickbar, solange unsichtbar */
+  height: 0;
+  overflow: hidden;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+/* wird sichtbar wenn man drauf tabbt */
+.skip-link:focus,
+.skip-link:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+  height: auto;
+  overflow: visible;
+  margin: 0 auto;
+  padding: 4px 8px;
+  outline: 3px solid var(--focus);
+  box-shadow: 0 0 0 4px var(--glow);
+  margin: 8px;
+}
+
+.skip-link:hover {
+  color: var(--focus);
+  transform: translateY(-1px);
+}
+
+*:focus {
+  /* inner indicator */
+  outline: 3px solid var(--focus);
+  box-shadow: 0 0 0 4px var(--glow);
+}
+
+/* ===================================================== 
+      2. COLLAGE (sonder.html)
+      ===================================================== */
+/* Bilder (immer aktiv, egal welche Bildschirmgröße) */
+.pic1 {
+  background-image: url("assets/PHOTO-01.jpg");
+}
+.pic2 {
+  background-image: url("assets/PHOTO-02.jpg");
+}
+.pic3 {
+  background-image: url("assets/PHOTO-03.jpg");
+}
+.pic4 {
+  background-image: url("assets/PHOTO-04.jpg");
+}
+.pic5 {
+  background-image: url("assets/PHOTO-05.jpg");
+}
+.pic6 {
+  background-image: url("assets/PHOTO-06.jpg");
+}
+.pic7 {
+  background-image: url("assets/PHOTO-07.jpg");
+}
+.pic8 {
+  background-image: url("assets/PHOTO-08.jpg");
+}
+.pic9 {
+  background-image: url("assets/PHOTO-09.jpg");
+}
+.pic10 {
+  background-image: url("assets/PHOTO-10.jpg");
+}
+.pic11 {
+  background-image: url("assets/PHOTO-11.jpg");
+}
+.collage-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 80px 10px 20px;
+}
+
+/* ===== Base Item ===== */
+.item {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+  transition:
+    filter 0.5s ease,
+    z-index 0s;
+  min-height: 250px;
+  text-decoration: none;
+  display: block;
+  overflow: hidden;
+}
+
+/* ===== AKTIVER ZUSTAND (Hover + Focus identisch) ===== */
+.item:hover,
+.item:focus,
+.item:focus-visible {
+  filter: grayscale(0%) brightness(1.2);
+  outline: 3px solid var(--neon);
+  outline-offset: -10px;
+  z-index: 10;
+}
+
+/* ===== Overlay ===== */
+.item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.item:hover::before,
+.item:focus::before,
+.item:focus-visible::before {
+  opacity: 1;
+}
+
+/* ===== "TO ACT" Text ===== */
+.item::after {
+  content: var(--hover-text);
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--white);
+  font-weight: 800;
+  letter-spacing: 0.4em;
+  font-size: 1.1rem;
+  text-shadow: 0 0 10px #000;
+  opacity: 0;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+  z-index: 2;
+}
+
+.item:hover::after,
+.item:focus::after,
+.item:focus-visible::after {
+  opacity: 1;
+  transform: translate(-50%, -55%);
+}
+.collage-container {
+  display: grid;
+  gap: 12px;
+  padding: 80px 12px 24px;
+
+  /* Mobile: automatisch passende Kacheln */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 180px;
+}
+
+/* Bilder wirken schöner im Grid */
+.item {
+  min-height: auto; /* wichtig: grid-auto-rows steuert Höhe */
+  border-radius: 10px; /* optional */
+}
+
+.center-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12vw;
+  font-weight: 900;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  z-index: 5;
+  margin: 0;
+}
+
+/* ===================================================== 
+      4. ACCESSIBILITY MODE (A11Y)
+      ===================================================== */
+body.accessible-mode {
+  background-color: var(--dark-bg) !important;
+  color: var(--text-color) !important;
+}
+
+body.accessible-mode .center-title {
+  position: relative !important;
+  transform: none !important;
+  top: 0;
+  left: 0;
+  color: var(--text-color) !important;
+  mix-blend-mode: normal !important;
+  font-size: 4rem;
+  text-align: center;
+  padding: 40px 0;
+}
+
+body.accessible-mode .collage-container {
+  display: grid;
+  gap: 16px;
+  padding: 24px 12px 32px;
+  height: auto; /* wichtig falls vorher 100vh */
+}
+
+/* Alle Bilder wieder sichtbar machen */
+body.accessible-mode .item {
+  display: block !important;
+  width: 100%;
+  filter: none !important;
+  border: 2px solid var(--text-color);
+  border-radius: 10px;
+  outline: none;
+}
+
+/* Overlay + Text nur bei Hover abschalten */
+body.accessible-mode .item:hover::before,
+body.accessible-mode .item:hover::after {
+  opacity: 0 !important;
+  content: none !important;
+}
+
+body.accessible-mode .act-grid-layout {
+  grid-template-columns: 1fr;
+}
+
+/* A11Y: Fokus wieder sichtbar machen (Keyboard) */
+body.accessible-mode .item:focus,
+body.accessible-mode .item:focus-visible {
+  outline: 3px solid var(--focus) !important;
+  box-shadow: 0 0 0 4px var(--glow) !important;
+  outline-offset: 5px !important; /* optional */
+}
+
+/* A11Y: Hover-Fokus NUR für pic1–pic3 */
+body.accessible-mode .pic1:hover,
+body.accessible-mode .pic2:hover,
+body.accessible-mode .pic3:hover {
+  outline: 3px solid var(--focus) !important;
+  box-shadow: 0 0 0 4px var(--glow) !important;
+  outline-offset: 5px !important;
+}
+
+/* A11Y: Overlay/Text nur bei Hover deaktivieren (nicht bei Focus!) */
+body.accessible-mode .item:hover::before,
+body.accessible-mode .item:hover::after {
+  content: none !important;
+  opacity: 0 !important;
+}
+
+/* A11Y: "TO ACT" / Hover-Text komplett deaktivieren */
+body.accessible-mode .item::after {
+  content: none !important;
+  display: none !important;
+  opacity: 0 !important;
+  transition: none !important;
+}
+
+/* A11Y: Overlay komplett deaktivieren */
+body.accessible-mode .item::before {
+  content: none !important;
+  display: none !important;
+  opacity: 0 !important;
+  transition: none !important;
+}
+
+/* Hilfsklasse für Screenreader-Texte */
+.a11y-text {
+  display: none;
+}
+body.accessible-mode .a11y-text {
+  display: block;
+  background: #000;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Etwas größer: 3 Spalten */
+@media (min-width: 640px) {
+  .collage-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 200px;
+  }
+}
+
+/* Tablet: 4 Spalten */
+@media (min-width: 900px) {
+  .collage-container {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: 220px;
+  }
+}
+
+/* Grid Positionen & Bilder */
+@media (min-width: 1024px) {
+  .collage-container {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    height: 100vh;
+    padding: 0;
+    gap: 0;
+  }
+
+  /* Nur Desktop nutzt die festen Areas */
+  .pic1 {
+    grid-area: 1/1/3/3;
+  }
+  .pic2 {
+    grid-area: 1/3/2/5;
+  }
+  .pic3 {
+    grid-area: 1/5/3/7;
+  }
+  .pic4 {
+    grid-area: 1/7/4/9;
+  }
+  .pic5 {
+    grid-area: 2/3/4/5;
+  }
+  .pic6 {
+    grid-area: 3/1/5/3;
+  }
+  .pic7 {
+    grid-area: 3/5/4/7;
+  }
+  .pic8 {
+    grid-area: 4/3/7/6;
+  }
+  .pic9 {
+    grid-area: 4/6/6/9;
+  }
+  .pic10 {
+    grid-area: 5/1/7/3;
+  }
+  .pic11 {
+    grid-area: 6/6/7/9;
+  }
+
+  /* Einheitliche Bildhöhen im A11Y-Mode */
+  body.accessible-mode .item {
+    min-height: 220px;
+    background-position: center;
+    background-size: cover;
+  }
+}

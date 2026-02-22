@@ -21,6 +21,9 @@
   --text-color: #f8f9fa;
   --box-shadow: #b1bbbd; /* silver*/
 
+  --dark-bg: #000000;
+  --white: #ffffff;
+
   /* Heading Sizes */
   --heading1: 34px;
   --heading2: 28px;

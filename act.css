@@ -1,0 +1,256 @@
+/* ===================================================== 
+   1. BASICS & VARIABLEN
+   ===================================================== */
+@import url("./variables.css");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+*:focus-visible {
+  /* inner indicator */
+  outline: 3px solid var(--focus);
+  box-shadow: 5px 5px 5px 9px var(--glow);
+  outline-offset: 5px;
+}
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: var(--dark-bg);
+  color: var(--white);
+  font-family: "Lexend", sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===================================================== 
+      2. BARRIEREFREIHEIT
+      ===================================================== */
+.skip-link {
+  display: block;
+  margin: 0;
+  padding: 0px;
+  width: 150px;
+  text-align: center;
+  background: var(--background-color);
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 8px;
+
+  /* unsichtbar solange kein Fokus */
+  opacity: 0;
+  pointer-events: none; /* nicht klickbar, solange unsichtbar */
+  height: 0;
+  overflow: hidden;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+  height: auto;
+  overflow: visible;
+  margin: 0 auto;
+  padding: 4px 8px;
+  outline: 3px solid var(--focus);
+  box-shadow: 0 0 0 4px var(--glow);
+  margin: 8px;
+}
+
+.skip-link:hover {
+  color: var(--focus);
+  transform: translateY(-1px);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ===================================================== 
+      3. RESPONSIVES GRID LAYOUT
+      ===================================================== */
+.act-main-container {
+  padding-top: 6rem;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.act-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr; /* Eine Spalte auf Mobile */
+  gap: 2rem;
+  width: 90%;
+  max-width: 1400px;
+  padding: 1rem;
+}
+
+/* --- DIE ÜBERSCHRIFT (Jetzt oben & waagerecht) --- */
+.vertical-title {
+  grid-column: 1 / -1; /* Nimmt die volle Breite ein */
+  writing-mode: horizontal-tb !important; /* Immer waagerecht */
+  transform: none !important; /* Keine Drehung */
+  color: var(--accent-color);
+  font-weight: 900;
+  font-size: clamp(2rem, 6vw, 3.5rem); /* Zoomt flüssig mit */
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid rgba(45, 226, 255, 0.2);
+  padding-bottom: 10px;
+}
+
+/* --- POSTER & SIDEBAR --- */
+.act-sidebar {
+  display: flex;
+  justify-content: center;
+}
+
+.poster-wrapper img {
+  width: 100%;
+  aspect-ratio: 2 / 3; /* Hohes Rahmenformat */
+  object-fit: cover; /* Bild füllt den Rahmen, ohne zu verzerren (schneidet Ränder ab) */
+  object-position: center top; /* Fokus bleibt eher oben im Bild */
+
+  /* Bestehende Styles beibehalten: */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(14, 14, 14, 0.5);
+}
+
+/* --- VIDEO & TEXT --- */
+.video-window iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  background: #0a0a0a;
+  border-radius: 4px;
+}
+
+.text-info h2 {
+  color: var(--neon);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  margin: 1.5rem 0 1rem 0;
+}
+
+.text-info p {
+  color: var(--neon);
+  font-weight: 300;
+  font-size: 1.1rem;
+  max-width: 75ch; /* Optimale Lesebreite */
+}
+
+/* --- ACT NAVIGATION (Pfeile auseinander schieben) --- */
+.act-nav-links {
+  display: flex;
+  justify-content: space-between; /* Schiebt ACT 1 nach links und ACT 3 nach rechts */
+  align-items: center;
+  width: 100%;
+  max-width: 75ch; /* Damit die Pfeile bündig mit deinem Text abschließen */
+  margin-top: 3rem;
+}
+
+.nav-arrow {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 900;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.nav-arrow:hover {
+  color: var(--neon);
+  transform: translateY(-2px);
+}
+
+/* ===================================================== 
+   4. TEXT ALTERNATIVE (CUSTOM BUTTONS)
+   ===================================================== */
+
+.container_textalternative {
+  border-top: 1px solid rgba(45, 226, 255, 0.2);
+  margin-top: 3rem;
+  padding-top: 1rem;
+}
+
+/* Flexbox für Text und Buttons in einer Reihe */
+.wrapper_textalt {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.wrapper_textalt p {
+  margin: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--neon);
+}
+
+/* Styling für die Toggle-Buttons (Dropdown/Dropup) */
+.dropdown,
+.dropup {
+  background: transparent;
+  border: 1px solid var(--neon);
+  color: var(--neon);
+  border-radius: 4px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown:hover,
+.dropup:hover {
+  background-color: var(--neon);
+  color: var(--dark-bg);
+  box-shadow: 0 0 10px var(--neon);
+}
+
+/* Die Inhalts-Box (der eigentliche Text) */
+.textalternative {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 3px solid var(--neon);
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.textalternative h2,
+.textalternative h3 {
+  color: var(--neon);
+  margin-bottom: 0.5rem;
+}
+
+/* Hilfsklasse zum Ein-/Ausblenden (wird per JS gesteuert) */
+.is-hidden {
+  display: none !important;
+}
+
+/* ===================================================== 
+      5. DESKTOP OPTIMIERUNG (AB 992PX)
+      ===================================================== */
+@media (min-width: 992px) {
+  .act-grid-layout {
+    grid-template-columns: 450px 1fr; /* Bild links fix, Video rechts flexibel */
+    column-gap: 4rem;
+  }
+}

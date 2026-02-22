@@ -93,3 +93,57 @@
   top: 8px;
   left: 0;
 }
+
+/* Der Barrierefrei-Button in der Navbar */
+
+/* A11y Button – Icon blau, Hintergrund transparent */
+.is-hidden {
+  display: none !important;
+}
+.btn-a11y-neon {
+  position: relative;
+  background: transparent;
+  border: 1px solid var(--neon);
+  color: var(--neon); /* Icon-Farbe */
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+  box-shadow: 0 0 6px rgba(45, 226, 255, 0.25);
+  margin-left: 8px;
+}
+
+/* Icon-Größe */
+.btn-a11y-neon i {
+  font-size: 38px;
+}
+
+/* Hover / Fokus */
+.btn-a11y-neon:hover,
+.btn-a11y-neon:focus-visible {
+  background: transparent; /* bleibt transparent */
+  box-shadow: 0 0 18px var(--accent-color);
+  transform: translateY(-1px);
+  color: var(--accent-color);
+}
+
+/* Aktiv-Zustand (wenn aria-pressed="true") */
+.btn-a11y-neon[aria-pressed="true"] {
+  box-shadow: 0 0 22px var(--neon);
+  border-width: 2px;
+}
+
+.a11y-active-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
