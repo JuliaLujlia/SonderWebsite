@@ -22,11 +22,11 @@
   --box-shadow: #b1bbbd; /* silver*/
 
   /* Heading Sizes */
-  --heading1: 34px;
-  --heading2: 28px;
-  --heading3: 22px;
-  --heading4: 18px;
-  --text-size: 16px;
+  --heading1: 2.5rem;
+  --heading2: 2rem;
+  --heading3: 1.7rem;
+  --heading4: 1.4rem;
+  --text-size: 1rem;
 
   /* Border */
   --border-radius: 25px;
