@@ -7,12 +7,11 @@
   box-sizing: border-box;
 }
 
-*:focus {
+*:focus-visible {
   /* inner indicator */
   outline: 3px solid var(--focus);
-  box-shadow: 0 0 0 4px var(--glow);
+  outline-offset: 5px;
 }
-
 html {
   height: 100%;
 }
@@ -161,7 +160,6 @@ a:hover {
   margin: 0 auto;
   padding: 4px 8px;
   outline: 3px solid var(--focus);
-  box-shadow: 0 0 0 4px var(--glow);
   margin: 8px;
 }
 
@@ -227,6 +225,20 @@ a:hover {
   font-size: 24px;
   color: white;
   pointer-events: none;
+}
+
+.dropdown:hover,
+.dropup:hover,
+.dropdown:focus-visible,
+.dropup:focus-visible {
+  transform: scale(1.25);
+}
+
+.dropdown:hover i,
+.dropup:hover i,
+.dropdown:focus-visible i,
+.dropup:focus-visible i {
+  color: var(--accent-color);
 }
 
 .textalternative.is-hidden,
@@ -625,6 +637,16 @@ dl {
   outline-offset: 3px;
 }
 
+.slide-btn:hover::before,
+.slide-btn:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.slide-btn:hover,
+.slide-btn:focus-visible {
+  transform: scale(1.1);
+}
+
 .arrow {
   position: relative;
   transform: translateY(-50%);
@@ -646,6 +668,16 @@ dl {
   font-size: 24px;
   color: white;
   pointer-events: none;
+}
+
+.autoplay:hover,
+.autoplay:focus-visible {
+  transform: scale(1.25);
+}
+
+.autoplay:hover i,
+.autoplay:focus-visible i {
+  color: var(--accent-color);
 }
 
 .arrow.is-hidden,

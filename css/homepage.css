@@ -16,6 +16,12 @@ body {
   background-position: center;
 }
 
+*:focus-visible {
+  /* inner indicator */
+  outline: 3px solid var(--focus);
+  outline-offset: 5px;
+}
+
 h1 {
   font-size: var(--heading1);
   font-family: "Lexend", sans-serif;
@@ -132,6 +138,19 @@ a:hover {
   pointer-events: none;
 }
 
+.dropdown:hover,
+.dropup:hover,
+.dropdown:focus-visible,
+.dropup:focus-visible {
+  transform: scale(1.25);
+}
+
+.dropdown:hover i,
+.dropup:hover i,
+.dropdown:focus-visible i,
+.dropup:focus-visible i {
+  color: var(--accent-color);
+}
 .textalternative.is-hidden,
 .dropup.is-hidden,
 .dropdown.is-hidden {
@@ -234,7 +253,6 @@ dl {
   margin: 0 auto;
   padding: 4px 8px;
   outline: 3px solid var(--focus);
-  box-shadow: 0 0 0 4px var(--glow);
   margin: 8px;
 }
 

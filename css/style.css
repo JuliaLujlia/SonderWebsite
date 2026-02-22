@@ -5,16 +5,16 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  background-color: var(--dark-bg);
-  color: var(--white);
+  background-color: var(--background-color);
+  color: var(--text-color);
   font-family: "Lexend", sans-serif;
   overflow-x: hidden;
 }
 
-*:focus {
+*:focus-visible {
   /* inner indicator */
   outline: 3px solid var(--focus);
-  box-shadow: 0 0 0 4px var(--glow);
+  outline-offset: 5px;
 }
 
 /* Skip-Link (Unsichtbar bis Tab-Fokus) */
@@ -57,7 +57,6 @@ body {
   margin: 0 auto;
   padding: 4px 8px;
   outline: 3px solid var(--focus);
-  box-shadow: 0 0 0 4px var(--glow);
   margin: 8px;
 }
 
@@ -66,48 +65,42 @@ body {
   transform: translateY(-1px);
 }
 
-*:focus {
-  /* inner indicator */
-  outline: 3px solid var(--focus);
-  box-shadow: 0 0 0 4px var(--glow);
-}
-
 /* ===================================================== 
       2. COLLAGE (sonder.html)
       ===================================================== */
 /* Bilder (immer aktiv, egal welche Bildschirmgröße) */
 .pic1 {
-  background-image: url("assets/PHOTO-01.jpg");
+  background-image: url("../img/PHOTO-01.jpg");
 }
 .pic2 {
-  background-image: url("assets/PHOTO-02.jpg");
+  background-image: url("../img/PHOTO-02.jpg");
 }
 .pic3 {
-  background-image: url("assets/PHOTO-03.jpg");
+  background-image: url("../img/PHOTO-03.jpg");
 }
 .pic4 {
-  background-image: url("assets/PHOTO-04.jpg");
+  background-image: url("../img/PHOTO-04.jpg");
 }
 .pic5 {
-  background-image: url("assets/PHOTO-05.jpg");
+  background-image: url("../img/PHOTO-05.jpg");
 }
 .pic6 {
-  background-image: url("assets/PHOTO-06.jpg");
+  background-image: url("../img/PHOTO-06.jpg");
 }
 .pic7 {
-  background-image: url("assets/PHOTO-07.jpg");
+  background-image: url("../img/PHOTO-07.jpg");
 }
 .pic8 {
-  background-image: url("assets/PHOTO-08.jpg");
+  background-image: url("../img/PHOTO-08.jpg");
 }
 .pic9 {
-  background-image: url("assets/PHOTO-09.jpg");
+  background-image: url("../img/PHOTO-09.jpg");
 }
 .pic10 {
-  background-image: url("assets/PHOTO-10.jpg");
+  background-image: url("../img/PHOTO-10.jpg");
 }
 .pic11 {
-  background-image: url("assets/PHOTO-11.jpg");
+  background-image: url("../img/PHOTO-11.jpg");
 }
 .collage-container {
   display: grid;
@@ -164,11 +157,11 @@ body {
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: var(--white);
+  color: var(--text-color);
   font-weight: 800;
   letter-spacing: 0.4em;
   font-size: 1.1rem;
-  text-shadow: 0 0 10px #000;
+  text-shadow: 0 0 10px var(--background-color);
   opacity: 0;
   transition:
     opacity 0.4s ease,
@@ -215,7 +208,7 @@ body {
       4. ACCESSIBILITY MODE (A11Y)
       ===================================================== */
 body.accessible-mode {
-  background-color: var(--dark-bg) !important;
+  background-color: var(--background-color) !important;
   color: var(--text-color) !important;
 }
 
@@ -224,11 +217,15 @@ body.accessible-mode .center-title {
   transform: none !important;
   top: 0;
   left: 0;
+
   color: var(--text-color) !important;
   mix-blend-mode: normal !important;
-  font-size: 4rem;
+
+  font-size: clamp(2rem, 8vw, 4rem);
+  line-height: 1.1;
   text-align: center;
   padding: 40px 0;
+  overflow-wrap: anywhere; /* falls extrem lange Wörter */
 }
 
 body.accessible-mode .collage-container {
@@ -263,7 +260,6 @@ body.accessible-mode .act-grid-layout {
 body.accessible-mode .item:focus,
 body.accessible-mode .item:focus-visible {
   outline: 3px solid var(--focus) !important;
-  box-shadow: 0 0 0 4px var(--glow) !important;
   outline-offset: 5px !important; /* optional */
 }
 
@@ -272,7 +268,6 @@ body.accessible-mode .pic1:hover,
 body.accessible-mode .pic2:hover,
 body.accessible-mode .pic3:hover {
   outline: 3px solid var(--focus) !important;
-  box-shadow: 0 0 0 4px var(--glow) !important;
   outline-offset: 5px !important;
 }
 
@@ -305,8 +300,8 @@ body.accessible-mode .item::before {
 }
 body.accessible-mode .a11y-text {
   display: block;
-  background: #000;
-  color: #fff;
+  background: var(--background-color);
+  color: var(--text-color);
   padding: 10px;
   text-align: center;
 }

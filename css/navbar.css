@@ -1,5 +1,11 @@
 @import url("css/variables.css");
 
+*:focus-visible {
+  /* inner indicator */
+  outline: 3px solid var(--focus);
+  outline-offset: 5px;
+}
+
 /* Navbar container */
 .navbar {
   position: sticky;
@@ -58,7 +64,6 @@
 .navbar-nav .nav-link:focus-visible,
 .navbar-toggler:focus-visible {
   outline: 3px solid var(--focus);
-  box-shadow: 0 0 0 4px var(--glow);
 }
 
 /* Hamburger (Button) */
@@ -130,14 +135,14 @@
 .btn-a11y-neon:hover,
 .btn-a11y-neon:focus-visible {
   background: transparent; /* bleibt transparent */
-  box-shadow: 0 0 18px var(--accent-color);
+  box-shadow: 0 0 22px var(--accent-color);
   transform: translateY(-1px);
   color: var(--accent-color);
 }
 
 /* Aktiv-Zustand (wenn aria-pressed="true") */
 .btn-a11y-neon[aria-pressed="true"] {
-  box-shadow: 0 0 22px var(--neon);
+  box-shadow: 0 0 22px var(--neo);
   border-width: 2px;
 }
 

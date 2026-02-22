@@ -11,7 +11,6 @@
 *:focus-visible {
   /* inner indicator */
   outline: 3px solid var(--focus);
-  box-shadow: 5px 5px 5px 9px var(--glow);
   outline-offset: 5px;
 }
 html {
@@ -22,12 +21,79 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  background-color: var(--dark-bg);
-  color: var(--white);
+  background-color: var(--background-color);
+  color: var(--text-color);
   font-family: "Lexend", sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-size: var(--heading1);
+  font-family: "Lexend", sans-serif;
+  font-weight: 700;
+  font-optical-sizing: auto;
+  color: var(--text-color);
+  text-align: center;
+  margin: 10px 0;
+}
+
+h2 {
+  font-size: var(--heading2);
+  font-family: "Lexend", sans-serif;
+  font-weight: 500;
+  font-optical-sizing: auto;
+  color: var(--text-color);
+  text-align: center;
+}
+
+h3 {
+  font-size: var(--heading3);
+  font-family: "Lexend", sans-serif;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  color: var(--text-color);
+  text-align: left;
+  margin-top: 24px;
+}
+
+h4 {
+  font-size: var(--heading4);
+  font-family: "Lexend", sans-serif;
+  font-weight: 300;
+  font-optical-sizing: auto;
+  color: var(--text-color);
+  text-align: left;
+  margin-top: 24px;
+}
+p,
+q {
+  font-size: var(--text);
+  font-family: "Lexend", sans-serif;
+  font-weight: 300;
+  font-optical-sizing: auto;
+  color: var(--text-color);
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+p:has(strong) {
+  margin-left: 20px;
+}
+
+a {
+  color: var(--focus);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 /* ===================================================== 
@@ -60,7 +126,6 @@ body {
   margin: 0 auto;
   padding: 4px 8px;
   outline: 3px solid var(--focus);
-  box-shadow: 0 0 0 4px var(--glow);
   margin: 8px;
 }
 
@@ -219,12 +284,18 @@ body {
 }
 
 .dropdown:hover,
-.dropup:hover {
+.dropup:hover,
+.dropdown:focus-visible,
+.dropup:focus-visible {
   background-color: var(--neon);
-  color: var(--dark-bg);
+  color: var(--bachground-color);
   box-shadow: 0 0 10px var(--neon);
 }
 
+.dropdown i,
+.dropup i {
+  font-size: 24px;
+}
 /* Die Inhalts-Box (der eigentliche Text) */
 .textalternative {
   padding: 1.5rem;

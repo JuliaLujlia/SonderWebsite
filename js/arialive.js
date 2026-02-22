@@ -4,6 +4,9 @@ const status_skipvideo = document.getElementById("skipvideo-status");
 const videolinkHome = document.getElementById("skipToIntroSection");
 const status_skipvideoHome = document.getElementById("skipvideo-home-status");
 
+const linkTextInfo = document.getElementById("skipToTextInfo");
+const status_skipTextInfo = document.getElementById("skipvideo-act-status");
+
 const linkNav = document.getElementById("skipToMainContent");
 const status_skipNav = document.getElementById("skipnav-status");
 
@@ -12,6 +15,9 @@ const status_expandedText = document.getElementById("textexpanded-status");
 
 const btn_dropup = document.getElementById("HideText");
 const status_hideText = document.getElementById("texthide-status");
+
+const a11yToggle = document.getElementById("a11y-toggle");
+const a11yStatus = document.getElementById("status_ally");
 
 const btn_stopSlide = document.getElementById("StopSlideshow");
 const status_stopSlide = document.getElementById("stopslideshow-status");
@@ -37,6 +43,8 @@ const status_prevSlide = document.getElementById("prevslide-status");
 const btn_nextSlide = document.getElementById("ToNextSlide");
 const status_nextSlide = document.getElementById("nextslide-status");
 
+const body = document.body;
+
 if (videolink && status_skipvideo) {
   videolink.addEventListener("click", () => {
     // leeren, damit wiederholt vorgelesen wird
@@ -53,6 +61,16 @@ if (videolinkHome && status_skipvideoHome) {
     status_skipvideoHome.textContent = "";
     setTimeout(() => {
       status_skipvideoHome.textContent = "skipped to intro section";
+    }, 50);
+  });
+}
+
+if (linkTextInfo && status_skipTextInfo) {
+  linkTextInfo.addEventListener("click", () => {
+    // leeren, damit wiederholt vorgelesen wird
+    status_skipTextInfo.textContent = "";
+    setTimeout(() => {
+      status_skipTextInfo.textContent = "skipped to something to think about";
     }, 50);
   });
 }
@@ -87,6 +105,26 @@ if (btn_dropup && status_hideText) {
       status_hideText.textContent = "text alternative hidden";
 
       btn_dropdown.focus();
+    }, 50);
+  });
+}
+
+if (a11yToggle && a11yStatus) {
+  a11yToggle.addEventListener("click", () => {
+    // leeren, damit wiederholt vorgelesen wird
+    a11yStatus.textContent = "";
+
+    // sonder.js schaltet den Modus im selben Click um
+    // -> wir lesen NACH dem Umschalten den Endzustand aus
+    setTimeout(() => {
+      const isActive = document.body.classList.contains("accessible-mode");
+      // alternativ (wenn du lieber am Button hängst):
+      // const isActive = a11yToggle.getAttribute("aria-pressed") === "true";
+
+      a11yStatus.textContent = isActive ? "accessibility mode on" : "accessibility mode off";
+
+      // Fokus optional – meist lässt man ihn auf dem Toggle:
+      // a11yToggle.focus();
     }, 50);
   });
 }
